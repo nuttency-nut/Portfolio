@@ -1,0 +1,16 @@
+.project-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  background: #f9faff url("../../../assets/images/background/continuation.svg") center top / 100% 200svh repeat-y;
+  color: #253858;
+}
+.project-content {
+  flex: 1;
+  width: min(90%, 1223px);
+  margin-inline: auto;
+  padding-block: 160px 96px;
+  font: 400 15px/1.8 "Be Vietnam Pro", Arial, sans-serif;
+}
+.project-page *, .project-page *::before, .project-page *::after { box-sizing: border-box; }

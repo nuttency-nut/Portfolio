@@ -1,0 +1,276 @@
+/* Share the hero/timeline content bounds; reserve the left 70% inside them. */
+.scroll-story-container {
+  width: min(90%, 1223px);
+  margin-inline: auto;
+}
+.scroll-story {
+  position: relative;
+  width: 70%;
+  margin: 0;
+  padding-bottom: 72px;
+  color: #52627a;
+  font: 400 14px/1.9 "Be Vietnam Pro", Arial, sans-serif;
+}
+.scroll-story *, .scroll-story *::before, .scroll-story *::after { box-sizing: border-box; }
+.scroll-story-heading {
+  margin: 0 0 16px;
+  color: #253858;
+  font: 700 clamp(28px, 4vw, 40px)/1.3 Oswald, "Arial Narrow", sans-serif;
+  letter-spacing: -.015em;
+  text-align: left;
+  text-wrap: balance;
+}
+.scroll-story-description {
+  display: grid;
+  max-width: 65ch;
+  margin: 0 0 4px;
+  color: #344969;
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: left;
+  text-wrap: pretty;
+}
+.scroll-story-description > span { grid-area: 1 / 1; }
+.scroll-story-description-typed { display: none; }
+.scroll-story-description.is-typing .scroll-story-description-source { opacity: 0; }
+.scroll-story-description.is-typing .scroll-story-description-typed { display: block; }
+.scroll-story-description.is-typing .scroll-story-description-typed::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  margin-left: .1em;
+  vertical-align: -.1em;
+  background: currentColor;
+  animation: story-caret-blink .8s steps(1, end) infinite;
+}
+@keyframes story-caret-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.scroll-story-body { position: relative; }
+@media (min-width: 768px) {
+  .scroll-story-body { margin-top: 80px; }
+}
+.scroll-story-track {
+  position: absolute;
+  inset: 0 0 auto;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.scroll-story-rail { stroke-opacity: .65; }
+.scroll-story-hint { position: absolute; z-index: 2; top: -66px; left: calc(50% + 12px); display: block; width: 244px; height: 80px; overflow: visible; color: #4d6fa5; pointer-events: none; }
+.scroll-story-hint[hidden] { display: none; }
+.scroll-story-hint text { fill: currentColor; font: 500 27px/1 Caveat, "Segoe Print", cursive; }
+.story-hint-wipe { stroke-dashoffset: 0; transition: stroke-dashoffset .95s cubic-bezier(.4, 0, .2, 1); }
+.scroll-story-hint.is-dismissed .story-hint-wipe, .scroll-story-hint.is-used .story-hint-wipe { stroke-dashoffset: -1; }
+.scroll-story-dot-toggle { position: absolute; z-index: 3; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: #fff; transform: translate(-50%, -50%); cursor: pointer; touch-action: manipulation; }
+.scroll-story-dot-toggle[hidden] { display: none; }
+.scroll-story-dot-toggle::before { content: ""; grid-area: 1 / 1; width: 14px; height: 14px; border-radius: 50%; background: #4f46e5; transition: transform .18s; }
+.scroll-story-dot-toggle svg { z-index: 1; grid-area: 1 / 1; width: 10px; height: 10px; }
+.scroll-story-dot-toggle[aria-expanded="true"] .story-dot-vertical { display: none; }
+.scroll-story-dot-toggle:hover::before { transform: scale(1.35); }
+.scroll-story-dot-toggle:focus-visible { outline: 2px solid #4f46e5; outline-offset: -7px; }
+.scroll-story-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 56px;
+  min-height: 280px;
+  padding: 32px 34px;
+}
+.scroll-story-row:nth-of-type(even) .scroll-story-photo { order: 2; }
+.scroll-story-row:nth-of-type(even) .scroll-story-content { order: 1; }
+.scroll-story-content { position: relative; }
+.scroll-story-heading-group { margin-bottom: 17px; }
+.scroll-story-company-logo {
+  display: block;
+  width: 40px;
+  height: 40px;
+  max-width: 100%;
+  aspect-ratio: 1;
+  margin-bottom: 12px;
+  object-fit: contain;
+  object-position: left center;
+}
+.scroll-story-content h3 {
+  margin: 0;
+  color: #253858;
+  font: 700 24px/1.3 Oswald, "Arial Narrow", sans-serif;
+  letter-spacing: -.015em;
+  text-wrap: balance;
+}
+.scroll-story-content p { margin: 0 0 17px; }
+.scroll-story-content p:last-child { margin-bottom: 0; }
+.scroll-story-details { margin: 0; }
+.scroll-story-details summary { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 0; color: #52627a; font-size: 13px; list-style: none; cursor: pointer; -webkit-tap-highlight-color: rgb(36 85 175 / 8%); }
+.scroll-story-details summary::-webkit-details-marker { display: none; }
+.scroll-story-details summary > span { text-decoration: underline; text-decoration-color: #b7c4d9; text-underline-offset: 4px; }
+.scroll-story-details summary svg { width: 12px; height: 12px; transition: transform .18s; }
+.scroll-story-details summary:hover { color: #2455af; }
+.scroll-story-details summary:focus-visible { outline: 2px solid #2455af; outline-offset: 3px; border-radius: 6px; }
+.scroll-story-details .story-details-hide, .scroll-story-details[data-expanded="true"] .story-details-show, .scroll-story-details:not([data-expanded])[open] .story-details-show { display: none; }
+.scroll-story-details[data-expanded="true"] .story-details-hide, .scroll-story-details:not([data-expanded])[open] .story-details-hide { display: inline; }
+.scroll-story-details[data-expanded="true"] summary svg, .scroll-story-details:not([data-expanded])[open] summary svg { transform: rotate(180deg); }
+.scroll-story-details-copy { overflow: hidden; }
+.scroll-story-details-copy::before { content: ""; display: block; height: 12px; }
+.scroll-story-meta { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: flex-start; gap: 4px 12px; margin-top: 6px; }
+.scroll-story-content .scroll-story-position { flex: 0 1 auto; min-width: 0; margin: 0; color: #52627a; font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; }
+.scroll-story-content .scroll-story-period { flex: none; max-width: 100%; margin: 0; color: #52627a; font-size: 13px; line-height: 1.6; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.scroll-story-lesson { margin-top: 24px; color: #344969; }
+.scroll-story-lesson h4 { margin: 0 0 8px; color: #253858; font: 700 18px/1.4 Oswald, "Arial Narrow", sans-serif; }
+.scroll-story-container.has-lesson-panel { display: grid; grid-template-columns: 70% 30%; align-items: start; }
+.has-lesson-panel .scroll-story { width: 100%; }
+.scroll-story-lessons {
+  align-self: stretch;
+  padding: calc(var(--story-intro-height, 240px) + 104px) 0 72px clamp(24px, 2.5vw, 36px);
+  color: #344969;
+  font: 400 14px/1.8 "Be Vietnam Pro", Arial, sans-serif;
+}
+.scroll-story-lessons-sticky { position: sticky; top: clamp(144px, 25svh, 240px); }
+.scroll-story-lessons h2 { margin: 0 0 24px; color: #253858; font: 700 clamp(22px, 2vw, 28px)/1.3 Oswald, "Arial Narrow", sans-serif; letter-spacing: -.015em; }
+.scroll-story-lesson-quotes { display: grid; }
+.scroll-story-lesson-quote {
+  grid-area: 1 / 1;
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.65;
+  text-wrap: pretty;
+  opacity: 0;
+  translate: 0 6px;
+  transition: opacity .28s ease, translate .35s cubic-bezier(.16, 1, .3, 1);
+}
+.scroll-story-lesson-quote.is-active { opacity: 1; translate: 0 0; }
+.scroll-story-lesson-note { margin: 24px 0 0; color: #52627a; font-size: 12px; }
+@media (min-width: 1024px) {
+  /* Keep each lesson in reading order for assistive tech; the sidebar is a visual copy. */
+  .has-lesson-panel .scroll-story-lesson { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}
+@media (max-width: 1023px) {
+  .scroll-story-container.has-lesson-panel { grid-template-columns: minmax(0, 1fr); }
+  .scroll-story, .has-lesson-panel .scroll-story { width: 100%; }
+  .scroll-story-lessons { display: none; }
+}
+.scroll-story-photo {
+  position: relative;
+  z-index: 1;
+  justify-self: center;
+  width: 132px;
+  height: 195px;
+  margin: 0;
+  padding: 6px;
+  border: 1px solid #cdd8e8;
+  border-radius: 14px;
+}
+.scroll-story-photo::before {
+  content: "";
+  display: block;
+  height: 100%;
+  border-radius: 8px;
+  background: #e8edf5;
+  box-shadow: inset 0 2px 2px rgba(100, 119, 145, .18);
+}
+.scroll-story-photo img {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 126px;
+  height: 189px;
+  object-fit: cover;
+  border: 3px solid #fff;
+  border-radius: 10px;
+  transform: translate(var(--pile-x), var(--pile-y)) rotate(var(--pile-angle));
+  box-shadow: 0 4px 10px rgba(42, 65, 109, .14);
+  transition: transform .32s cubic-bezier(.4, 0, .2, 1), box-shadow .32s ease;
+  transition-delay: calc((3 - var(--photo-index)) * 35ms);
+}
+.scroll-story-photo-toggle {
+  -webkit-tap-highlight-color: transparent;
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.scroll-story-photo-toggle:focus-visible { outline: 2px solid #2455af; outline-offset: 20px; }
+/* Keep the hover area connected while the four pictures spread apart. */
+.scroll-story-photo-toggle::after {
+  content: "";
+  position: absolute;
+  inset: -60px;
+  pointer-events: none;
+}
+.scroll-story-photo.is-open .scroll-story-photo-toggle::after { pointer-events: auto; }
+.scroll-story-photo img:nth-child(1) {
+  --photo-index: 0; --pile-x: 10px; --pile-y: 10px; --pile-angle: -3deg;
+  --spread-x: -55px; --spread-y: -50px; --spread-angle: -11deg;
+  z-index: 4;
+}
+.scroll-story-photo img:nth-child(2) {
+  --photo-index: 1; --pile-x: 1px; --pile-y: 1px; --pile-angle: -6deg;
+  --spread-x: 55px; --spread-y: -44px; --spread-angle: 10deg;
+  z-index: 3;
+}
+.scroll-story-photo img:nth-child(3) {
+  --photo-index: 2; --pile-x: -8px; --pile-y: -8px; --pile-angle: -9deg;
+  --spread-x: -48px; --spread-y: 60px; --spread-angle: -8deg;
+  z-index: 2;
+}
+.scroll-story-photo img:nth-child(4) {
+  --photo-index: 3; --pile-x: -17px; --pile-y: -17px; --pile-angle: -12deg;
+  --spread-x: 57px; --spread-y: 68px; --spread-angle: 8deg;
+  z-index: 1;
+}
+.scroll-story-photo.is-open img {
+  transform: translate(var(--spread-x), var(--spread-y)) rotate(var(--spread-angle)) scale(.8);
+  box-shadow: 0 8px 16px rgba(42, 65, 109, .18);
+  transition-duration: .6s;
+  transition-timing-function: cubic-bezier(.16, 1, .3, 1);
+  transition-delay: calc(var(--photo-index) * 60ms);
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .scroll-story-row { padding-inline: 20px; }
+}
+@media (max-width: 767px) {
+  .scroll-story { padding-bottom: 40px; }
+  .scroll-story-description { font-size: 14px; }
+  .scroll-story-track, .scroll-story-hint { display: none; }
+  .scroll-story-row {
+    grid-template-columns: 148px minmax(0, 1fr);
+    align-items: start;
+    gap: 16px;
+    min-height: 0;
+    padding: 24px 0 40px;
+    border-bottom: 1px solid #dfe6ef;
+  }
+  .scroll-story-row:last-child { border-bottom: 0; }
+  .scroll-story-content { display: contents; }
+  .scroll-story-heading-group { grid-column: 2; grid-row: 1; align-self: center; margin-bottom: 0; }
+  .scroll-story-company-logo { width: 32px; height: 32px; margin-bottom: 10px; }
+  .scroll-story-content h3 { margin: 0; }
+  .scroll-story-details { grid-column: 1 / -1; }
+  .scroll-story-details-copy > p { font-size: 14px; line-height: 1.8; }
+  .scroll-story-dot-toggle { display: none; }
+  .scroll-story-lesson { grid-column: 1 / -1; margin-top: 8px; }
+  .scroll-story-photo { grid-column: 1; grid-row: 1; align-self: center; width: 100px; height: 148px; margin-block: 40px; }
+  .scroll-story-photo img { width: 96px; height: 144px; }
+  .scroll-story-photo.is-open img { transform: translate(var(--spread-mobile-x), var(--spread-y)) rotate(var(--spread-angle)) scale(.7); }
+  .scroll-story-photo img:nth-child(1), .scroll-story-photo img:nth-child(3) { --spread-mobile-x: -20px; }
+  .scroll-story-photo img:nth-child(2), .scroll-story-photo img:nth-child(4) { --spread-mobile-x: 20px; }
+  .scroll-story-photo-toggle::after { inset: -52px -24px; }
+  .scroll-story-row:nth-of-type(even) .scroll-story-photo { order: initial; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-story-hint { display: none; }
+  .story-hint-wipe { transition: none; }
+  .scroll-story-dot-toggle { display: none; }
+  .scroll-story-details summary svg, .scroll-story-dot-toggle::before { transition: none; }
+  .scroll-story-glow, .scroll-story-dot { display: none; }
+  .scroll-story-photo img, .scroll-story-photo.is-open img { transition: none; }
+  .scroll-story-lesson-quote { transition: none; translate: none; }
+}

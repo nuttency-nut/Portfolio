@@ -1,0 +1,166 @@
+/* Adapted from the supplied hero-title_1.html; scoped to the left hero title. */
+.hero-intro {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: min(90%, 1223px);
+  min-height: 100vh;
+  min-height: 100svh;
+  margin-inline: auto;
+  padding-block: 152px 80px;
+}
+
+.hero-copy { width: 100%; }
+
+.hero-title {
+  --hero-start: .3s;
+  --hero-power3: cubic-bezier(.215, .61, .355, 1);
+  --hero-power1: cubic-bezier(.25, .46, .45, .94);
+  display: grid;
+  grid-template-columns: max-content;
+  width: 55%;
+  margin: 0;
+  color: #253858;
+  font-family: Oswald, "Arial Narrow", sans-serif;
+  font-size: clamp(3.5rem, 6.875vw, 7.25rem);
+  font-weight: 700;
+  letter-spacing: -.015em;
+  text-align: left;
+}
+.hero-line {
+  display: block;
+  overflow: visible;
+  /* Stationary reveal window, with headroom for Vietnamese accent marks. */
+  clip-path: inset(-.5em -.2em 0 -.2em);
+  line-height: 1.3;
+  padding-block: .08em;
+}
+.hero-line > span { display: inline-block; vertical-align: top; white-space: nowrap; }
+.hero-first-name { display: inline-block; }
+.hero-name + .hero-name { margin-top: -.28em; }
+.hero-name > span {
+  animation: hero-title-rise .4s var(--hero-power3) var(--hero-start) both;
+  animation-play-state: paused;
+}
+.hero-roles {
+  display: block;
+  /* Width is measured from NGUYỄN after the font loads, then kept in sync. */
+  container-type: inline-size;
+  margin-top: -.12em;
+}
+.hero-role {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.85vw, 2.6rem);
+  font-weight: 200;
+  font-style: normal;
+  letter-spacing: 0;
+  line-height: 1.05;
+  padding-block: .025em;
+}
+.hero-role > span {
+  box-sizing: border-box;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  padding-inline: .12em;
+}
+.hero-role--business > span {
+  translate: 0 0;
+  animation:
+    hero-title-rise .4s var(--hero-power3) calc(var(--hero-start) + .4s) both,
+    hero-title-split-left .4s var(--hero-power3) calc(var(--hero-start) + .8s) both;
+  animation-play-state: paused;
+}
+.hero-role--commerce > span {
+  font-style: italic;
+  translate: var(--hero-commerce-offset, .5em) 0;
+  animation:
+    hero-title-rise .4s var(--hero-power3) calc(var(--hero-start) + .4s) both,
+    hero-title-split-right .5s var(--hero-power1) calc(var(--hero-start) + .8s) both,
+    hero-title-italic 1ms linear calc(var(--hero-start) + .8s) both;
+  animation-play-state: paused;
+}
+
+.hero-title.is-ready .hero-line > span { animation-play-state: running; }
+
+.hero-description {
+  display: grid;
+  max-width: 48rem;
+  margin: 24px max(0px, calc(50% - 10rem)) 0 auto;
+  color: #344969;
+  font: 400 16px/1.75 "Be Vietnam Pro", Arial, sans-serif;
+  text-align: right;
+  white-space: pre-line;
+  text-wrap: pretty;
+}
+.hero-description > span { grid-area: 1 / 1; }
+.hero-description-typed { display: none; }
+.hero-description.is-typing .hero-description-source { opacity: 0; }
+.hero-description.is-typing .hero-description-typed { display: block; }
+.hero-description.is-typing .hero-description-typed::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  margin-left: .1em;
+  vertical-align: -.1em;
+  background: currentColor;
+  animation: hero-caret-blink .8s steps(1, end) infinite;
+}
+
+@keyframes hero-caret-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Match the supplied animation: the text rises behind a fixed reveal window. */
+@keyframes hero-title-rise {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes hero-title-split-left {
+  from { translate: calc(50cqw - 50%) 0; }
+  to { translate: 0 0; }
+}
+@keyframes hero-title-split-right {
+  from { translate: calc(50cqw - 50%) 0; }
+  to { translate: var(--hero-commerce-offset, .5em) 0; }
+}
+@keyframes hero-title-italic { from { font-style: normal; } to { font-style: italic; } }
+
+/* Stack below the card on narrow portrait screens; its full-screen drag area stays intact. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .hero-description { max-width: 55%; margin-inline: 0; }
+}
+@media (max-width: 767px), (max-width: 1023px) and (orientation: portrait) {
+  .hero-intro { align-items: flex-start; padding-top: calc(62svh + 16px); padding-bottom: max(12px, env(safe-area-inset-bottom)); }
+  .hero-copy { width: 100%; }
+  .hero-title { width: 100%; font-size: clamp(2rem, 6svh, 3.25rem); }
+  .hero-role { font-size: clamp(1rem, 2.6svh, 1.35rem); }
+  .hero-description { max-width: 25rem; margin: 8px auto 0; font-size: clamp(.75rem, 1.65svh, .875rem); line-height: 1.5; }
+  .hero-description {
+    position: relative;
+    z-index: 0;
+  }
+  .hero-description::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    z-index: -1;
+    background: rgba(249, 250, 255, .4);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    -webkit-mask-image: var(--hero-text-mask, linear-gradient(transparent, transparent));
+    mask-image: var(--hero-text-mask, linear-gradient(transparent, transparent));
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    pointer-events: none;
+  }
+}
+@media (max-height: 740px) and (max-width: 767px), (max-height: 740px) and (max-width: 1023px) and (orientation: portrait) {
+  .hero-intro { padding-top: calc(54svh + 12px); }
+  .hero-description { margin-top: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-line > span { animation: none; }
+}

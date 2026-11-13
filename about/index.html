@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
+  <base href="/" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon/favicon.svg?v=1" />
+  <title>About — Nguyễn Quốc Anh Duy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600&family=Be+Vietnam+Pro:wght@400&family=Oswald:wght@700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="assets/fonts/dancing-script/DancingScript.woff" as="font" type="font/woff" crossorigin />
+  <link rel="stylesheet" href="src/styles/shared/background.css?v=20261111-4" />
+  <link rel="stylesheet" href="src/styles/shared/topbar.css?v=4" />
+  <link rel="stylesheet" href="src/styles/shared/page-layout.css?v=1" />
+  <link rel="stylesheet" href="src/styles/pages/about/main.css?v=20" />
+  <link rel="stylesheet" href="src/styles/pages/about/radar.css?v=3" />
+  <link rel="stylesheet" href="src/styles/pages/about/skills.css?v=8" />
+  <link rel="stylesheet" href="src/styles/pages/about/tools.css?v=6" />
+  <link rel="stylesheet" href="src/styles/pages/about/faq.css?v=2" />
+  <link rel="stylesheet" href="src/styles/shared/contact.css?v=10" />
+  <link rel="stylesheet" href="src/styles/shared/footer.css?v=4" />
+</head>
+<body class="project-page about-page">
+  <div class="topbar-wrap" id="topbar">
+    <nav class="topbar" aria-label="Điều hướng chính">
+      <ul class="nav-links">
+        <li><a href="/" data-scroll-target="home">Home</a></li>
+        <li><a href="/Project">Project</a></li>
+        <li><a href="/about" class="active" aria-current="page">About</a></li>
+        <li><a href="/" data-contact-dialog aria-haspopup="dialog" aria-controls="contact-dialog">Contact</a></li>
+      </ul>
+
+      <div class="topbar-music" data-playing="false">
+        <button class="music-toggle" type="button" aria-label="Phát nhạc" aria-pressed="false" disabled>
+          <svg class="music-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5Z" fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5" /></svg>
+          <svg class="music-icon-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor" /><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor" /></svg>
+        </button>
+        <div class="music-copy">
+          <div class="music-title-window"><div class="music-title-track"><span class="music-title">Chờ anh chút thôi (Không lời)</span></div></div>
+          <span class="music-artist">CONGB</span>
+        </div>
+        <span class="music-status" role="status" hidden></span>
+        <audio class="music-audio" src="assets/audio/background/cho-anh-chut-thoi-khong-loi.mp3" preload="none" loop></audio>
+      </div>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/anh-duy-1b3a44378/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M7 10v7m4-4v4m0-4a3 3 0 1 1 6 0v4m-6-4v-3M7.125 6.75H7m.25 0a.25.25 0 1 1-.5 0a.25.25 0 0 1 .5 0"/><path d="M3 12c0-4.243 0-6.364 1.318-7.682S7.758 3 12 3s6.364 0 7.682 1.318S21 7.758 21 12s0 6.364-1.318 7.682S16.242 21 12 21s-6.364 0-7.682-1.318S3 16.242 3 12"/></g></svg>
+        </a>
+        <a href="https://zalo.me/0866214216" target="_blank" rel="noopener noreferrer" aria-label="Zalo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M12 3c-5 0-9 3.6-9 8 0 2.1.9 4 2.4 5.4L4 21l4.8-2.4c1 .3 2.1.4 3.2.4 5 0 9-3.6 9-8s-4-8-9-8Z"/>
+            <path d="M8.5 8h7l-7 6h7"/>
+          </svg>
+        </a>
+        <a href="https://www.bloomebridal.com/" target="_blank" rel="noopener noreferrer" aria-label="Website">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="9"/>
+            <ellipse cx="12" cy="12" rx="4" ry="9"/>
+            <path d="M3 12h18M5 6.5c4.2 2 9.8 2 14 0M5 17.5c4.2-2 9.8-2 14 0"/>
+          </svg>
+        </a>
+      </div>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Mở menu" aria-controls="mobileMenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5h16M4 12h16M4 19h16"/></svg>
+      </button>
+    </nav>
+
+    <!-- Menu cho điện thoại -->
+    <div class="mobile-menu" id="mobileMenu" aria-label="Điều hướng điện thoại" hidden inert>
+      <a href="/" data-scroll-target="home">Home</a>
+      <a href="/Project">Project</a>
+      <a href="/about" class="active" aria-current="page">About</a>
+      <a href="/" data-contact-dialog aria-haspopup="dialog" aria-controls="contact-dialog">Contact</a>
+    </div>
+  </div>
+  <main class="project-content" id="about-content" aria-labelledby="about-title">
+    <div class="about-first-screen">
+    <section class="about-hero" aria-labelledby="about-title">
+      <div class="about-hero-grid">
+        <div class="about-hero-copy">
+          <h1 id="about-title">
+            <span class="about-greeting">Xin chào, mình là <span class="about-person">Anh <span class="about-title-name">Duy<svg class="about-second-name" viewBox="0 0 174 80" role="img" aria-label="second name: Trần Anh Quốc" focusable="false">
+              <text x="20" y="24" aria-hidden="true">Second name:<tspan x="20" dy="24"> Trần Anh Quốc</tspan></text>
+              <path d="M150 48C156 74 32 77 0 52M8 49L0 52L5 60" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" />
+            </svg></span>.</span></span>
+            <span class="about-role">Mình làm kinh doanh &amp; vận hành <span class="about-marker">E-commerce.</span></span>
+          </h1>
+          <p class="about-lead">Mình làm việc trách nhiệm, biết lắng nghe và chủ động tìm giải pháp, sẵn sàng vượt qua thử thách.</p>
+          <p class="about-lead">Định hướng của mình là trở thành một phần có ích trong doanh nghiệp, đồng thời nuôi dưỡng ước mơ kinh doanh riêng trong ngành bán lẻ.</p>
+          <div class="about-actions">
+            <a class="about-primary" href="/Project">Xem dự án<span class="about-primary-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></span></a>
+          </div>
+        </div>
+        <figure class="about-portrait">
+          <div class="about-photo"><img src="assets/images/about/portrait.jpg" width="880" height="1100" alt="Nguyễn Quốc Anh Duy tại Bloomé Bridal" fetchpriority="high" decoding="async" /></div>
+          <figcaption class="about-name-tag" tabindex="0" aria-label="Nguyễn Quốc Anh Duy và các công ty đã đồng hành">
+            <div class="about-badge-stage">
+              <div class="about-badge-panel is-current">
+                <strong>Nguyễn Quốc Anh Duy</strong>
+                <span>Kinh doanh &amp; vận hành E-commerce</span>
+              </div>
+              <div class="about-badge-panel about-badge-company" hidden>
+                <img src="assets/images/home/journey/moc-01/logo.png" alt="" width="44" height="44" decoding="async" fetchpriority="low" />
+                <strong>Thế Giới Di Động</strong>
+              </div>
+              <div class="about-badge-panel about-badge-company" hidden>
+                <img src="assets/images/home/journey/moc-04/logo.png" alt="" width="44" height="44" decoding="async" fetchpriority="low" />
+                <strong>Di Động Việt</strong>
+              </div>
+              <div class="about-badge-panel about-badge-company" hidden>
+                <img src="assets/images/home/journey/moc-05/logo.png" alt="" width="44" height="44" decoding="async" fetchpriority="low" />
+                <strong>Mỹ Phẩm Maria</strong>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="about-stats-section" aria-label="Hành trình qua những con số">
+      <!-- data-count và data-suffix điều khiển hiệu ứng đếm; text bên trong là giá trị khi tắt JavaScript. -->
+      <dl class="about-stats">
+        <div class="about-stat"><dt>Bắt đầu hành trình</dt><dd class="about-stat-value">2022</dd><dd class="about-stat-description">Từ ngành bán lẻ</dd></div>
+        <div class="about-stat"><dt>Năm kinh nghiệm</dt><dd class="about-stat-value" data-count="3" data-suffix="+">3+</dd><dd class="about-stat-description">Vận hành &amp; kinh doanh TMĐT</dd></div>
+        <div class="about-stat"><dt>Dự án hoàn thành</dt><dd class="about-stat-value" data-count="4" data-suffix="+">4+</dd><dd class="about-stat-description">Từ ý tưởng đến trực tiếp triển khai</dd></div>
+        <div class="about-stat"><dt>Tinh thần đồng&nbsp;đội&nbsp;😎</dt><dd class="about-stat-value" data-count="99" data-suffix="+">99+</dd><dd class="about-stat-description">Cùng nhau làm tốt hơn</dd></div>
+      </dl>
+    </section>
+    </div>
+    <section class="about-skills" aria-labelledby="about-skills-title">
+      <h2 id="about-skills-title">Điểm mạnh của mình là gì?</h2>
+      <p class="about-skills-description">Mình có khả năng kết nối, tổ chức và tối ưu quy trình vận hành trong lĩnh vực TMĐT, với tư duy kinh doanh thực tế và tinh thần cải tiến liên tục.</p>
+      <div class="about-skills-grid">
+        <article class="about-skill-card about-skill-operations" aria-labelledby="skill-operations-title">
+          <div class="about-skill-surface">
+            <div class="about-skill-content">
+              <details class="about-skill-details">
+                <summary aria-controls="skill-operations-details">
+                  <h3 id="skill-operations-title">1. Quy trình vận hành TMĐT</h3>
+                </summary>
+                <div class="about-skill-reveal" id="skill-operations-details">
+                  <ul>
+                    <li>Xây dựng, triển khai và tối ưu quy trình bán hàng trên các sàn như Shopee, Lazada, Tiki…</li>
+                    <li>Phối hợp với các bộ phận khác (Mua hàng, Marketing, Thiết kế…) để đảm bảo hiệu quả vận hành và lợi nhuận.</li>
+                    <li>Theo dõi xuyên suốt quá trình vận hành để đảm bảo hiệu suất làm việc cao và đạt đúng mục tiêu kinh doanh đề ra.</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </div>
+        </article>
+        <article class="about-skill-card about-skill-data" aria-labelledby="skill-data-title">
+          <div class="about-skill-surface">
+            <div class="about-skill-content">
+              <details class="about-skill-details">
+                <summary aria-controls="skill-data-details">
+                  <h3 id="skill-data-title">2. Phân tích dữ liệu ℰ báo cáo</h3>
+                </summary>
+                <div class="about-skill-reveal" id="skill-data-details">
+                  <ul>
+                    <li>Sử dụng thành thạo Google Sheets, Excel, Power BI để theo dõi doanh thu, hiệu suất và hiệu quả vận hành.</li>
+                    <li>Báo cáo theo ngày, tháng để hỗ trợ ra quyết định kinh doanh tức thì.</li>
+                    <li>Khả năng thiết kế báo cáo trực quan, dễ hiểu và tùy chỉnh theo nhu cầu.</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </div>
+        </article>
+        <article class="about-skill-card about-skill-problems" aria-labelledby="skill-problems-title">
+          <div class="about-skill-surface">
+            <div class="about-skill-content">
+              <details class="about-skill-details">
+                <summary aria-controls="skill-problems-details">
+                  <h3 id="skill-problems-title">3. Khả năng giải quyết vấn đề</h3>
+                </summary>
+                <div class="about-skill-reveal" id="skill-problems-details">
+                  <ul>
+                    <li>Nhận diện rủi ro trong vận hành TMĐT và chủ động đưa ra hướng xử lý phù hợp.</li>
+                    <li>Đảm bảo quy trình được duy trì xuyên suốt, hạn chế gián đoạn và thiệt hại nhất có thể.</li>
+                    <li>Kết hợp tinh thần học hỏi để nâng cao tư duy xử lý</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </div>
+        </article>
+        <article class="about-skill-card about-skill-team" aria-labelledby="skill-team-title">
+          <div class="about-skill-surface">
+            <div class="about-skill-content">
+              <details class="about-skill-details">
+                <summary aria-controls="skill-team-details">
+                  <h3 id="skill-team-title">4. Quản lý và phát triển đội nhóm</h3>
+                </summary>
+                <div class="about-skill-reveal" id="skill-team-details">
+                  <ul>
+                    <li>Theo dõi hiệu suất làm việc, đào tạo và triển khai để đảm bảo chất lượng công việc</li>
+                    <li>Không ngừng cải tiến cách vận hành nhóm, giúp tiết kiệm thời gian, nâng cao hiệu suất và phát triển năng lực cá nhân cho từng thành viên.</li>
+                    <li>Khả năng lắng nghe và thấu hiểu đồng đội của mình.</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="about-tools" aria-labelledby="about-tools-title">
+      <h2 id="about-tools-title">Trợ thủ không thể thiếu, mà mình đang sử dụng 🙆</h2>
+      <div class="about-tools-window" data-speed="85" data-tilt="0" tabindex="0" role="region" aria-label="Các ứng dụng mình sử dụng. Dùng phím mũi tên trái và phải để xem thêm.">
+        <div class="about-tools-plane">
+          <div class="about-tools-track">
+            <ul class="about-tools-list">
+              <li title="Google Sheets"><a href="https://workspace.google.com/products/sheets/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/apps/google-sheets.svg" alt="Google Sheets" width="50" height="50" draggable="false" /></a></li>
+              <li title="Google Docs"><a href="https://workspace.google.com/products/docs/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/apps/google-docs.svg" alt="Google Docs" width="50" height="50" draggable="false" /></a></li>
+              <li title="Google Slides"><a href="https://workspace.google.com/products/slides/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/apps/google-slides.svg" alt="Google Slides" width="50" height="50" draggable="false" /></a></li>
+              <li title="Excel"><a href="https://www.microsoft.com/en-us/microsoft-365/excel" target="_blank" rel="noopener noreferrer"><img src="assets/icons/apps/microsoft-excel.svg" alt="Excel" width="50" height="50" draggable="false" /></a></li>
+              <li title="Power BI"><a href="https://www.microsoft.com/en-us/microsoft-fabric/features/power-bi" target="_blank" rel="noopener noreferrer"><img src="assets/icons/apps/microsoft-power-bi.svg" alt="Power BI" width="50" height="50" draggable="false" /></a></li>
+              <li title="Canva"><a href="https://www.canva.com/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/apps/canva.svg?v=2" alt="Canva" width="50" height="50" draggable="false" /></a></li>
+              <li title="Figma"><a href="https://www.figma.com/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/apps/figma.svg" alt="Figma" width="50" height="50" draggable="false" /></a></li>
+              <li title="Looker Studio"><a href="https://lookerstudio.google.com/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/apps/google-data-studio.svg" alt="Looker Studio" width="50" height="50" draggable="false" /></a></li>
+              <li title="ChatGPT"><a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/apps/openai-icon.svg" alt="ChatGPT" width="50" height="50" draggable="false" /></a></li>
+              <li title="Claude"><a href="https://claude.ai/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/apps/claude-icon.svg" alt="Claude" width="50" height="50" draggable="false" /></a></li>
+              <li title="Supabase"><a href="https://supabase.com/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/apps/supabase-icon.svg" alt="Supabase" width="50" height="50" draggable="false" /></a></li>
+              <li title="Cloudflare"><a href="https://www.cloudflare.com/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/apps/cloudflare-icon.svg" alt="Cloudflare" width="50" height="50" draggable="false" /></a></li>
+              <li title="Vercel"><a href="https://vercel.com/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/apps/vercel-icon.svg?v=2" alt="Vercel" width="50" height="50" draggable="false" /></a></li>
+              <li title="Firestore"><a href="https://firebase.google.com/products/firestore" target="_blank" rel="noopener noreferrer"><img src="assets/icons/apps/google-cloud-firestore.svg" alt="Firestore" width="50" height="50" draggable="false" /></a></li>
+              <li title="GitHub"><a href="https://github.com/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/apps/github-icon.svg" alt="GitHub" width="50" height="50" draggable="false" /></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="about-tools-window about-tools-stack" data-speed="40" data-direction="right" data-tilt="0" tabindex="0" role="region" aria-label="Các nền tảng làm việc và liên lạc. Dùng phím mũi tên trái và phải để xem thêm.">
+        <div class="about-tools-plane">
+          <div class="about-tools-track">
+            <ul class="about-tools-list">
+              <li title="Line Chat"><a href="https://www.line.me/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/apps/line.svg" alt="" width="32" height="32" draggable="false" /><span>Line Chat</span></a></li>
+              <li title="Lark Suite"><a href="https://www.larksuite.com/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/apps/lark.png" alt="" width="32" height="32" draggable="false" /><span>Lark Suite</span></a></li>
+              <li title="Zalo"><a href="https://zalo.me/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/apps/zalo.png" alt="" width="32" height="32" draggable="false" /><span>Zalo</span></a></li>
+              <li title="1Office"><a href="https://1office.vn/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/apps/1office.png" alt="" width="32" height="32" draggable="false" /><span>1Office</span></a></li>
+              <li title="Haravan"><a href="https://www.haravan.com/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/apps/haravan.svg" alt="" width="32" height="32" draggable="false" /><span>Haravan</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="about-capabilities" aria-label="Hồ sơ kỹ năng">
+      <figure class="about-radar-photo">
+        <img src="assets/images/about/radar-photo.jpg" width="800" height="600" alt="Ảnh mẫu khung ngang 4:3" loading="lazy" decoding="async" />
+      </figure>
+      <section class="about-radar" aria-labelledby="about-radar-title">
+        <div class="about-radar-tabs" role="tablist" aria-label="Nhóm năng lực">
+          <button id="radar-tab-yoe" type="button" role="tab" aria-controls="about-radar-panel" aria-selected="false" tabindex="-1" data-radar-tab="yoe" disabled>YoE</button>
+          <button id="radar-tab-soft" type="button" role="tab" aria-controls="about-radar-panel" aria-selected="true" data-radar-tab="soft" disabled>Soft</button>
+          <button id="radar-tab-hard" type="button" role="tab" aria-controls="about-radar-panel" aria-selected="false" tabindex="-1" data-radar-tab="hard" disabled>Hard</button>
+          <button id="radar-tab-tools" type="button" role="tab" aria-controls="about-radar-panel" aria-selected="false" tabindex="-1" data-radar-tab="tools" disabled>Tools</button>
+        </div>
+        <div id="about-radar-panel" role="tabpanel" aria-labelledby="radar-tab-soft" tabindex="0">
+          <h2 id="about-radar-title">Kỹ năng mềm</h2>
+          <p class="about-radar-description">Giao tiếp, quản lý và phối hợp cùng đội ngũ.</p>
+          <div class="about-radar-chart" aria-hidden="true" hidden></div>
+          <dl class="about-radar-values">
+            <div><dt>Lãnh đạo</dt><dd>8 / 10</dd></div>
+            <div><dt>Giao tiếp</dt><dd>8 / 10</dd></div>
+            <div><dt>Đào tạo</dt><dd>7 / 10</dd></div>
+            <div><dt>Đồng hành</dt><dd>9 / 10</dd></div>
+            <div><dt>Chiến lược</dt><dd>7 / 10</dd></div>
+            <div><dt>Trình bày</dt><dd>7 / 10</dd></div>
+            <div><dt>Quyết định</dt><dd>8 / 10</dd></div>
+            <div><dt>Thích nghi</dt><dd>9 / 10</dd></div>
+          </dl>
+          <p class="about-radar-note">Dữ liệu minh họa · Thang điểm 10</p>
+        </div>
+      </section>
+    </section>
+    <section class="about-faq" aria-labelledby="about-faq-title">
+      <div class="about-faq-intro">
+        <h2 id="about-faq-title">Q&A?</h2>
+        <p>Trong hành trình phát triển tự do của mình, Duy thường xuyên gặp những câu hỏi từ đồng nghiệp, bạn bè cùng khóa và cả gia đình. Duy ghi nhận lại và trả lời bên đây để bạn hiểu thêm về Duy nhé!</p>
+      </div>
+      <div class="about-faq-list">
+        <article class="about-faq-item">
+          <details class="about-faq-details">
+            <summary aria-controls="about-faq-answer-1"><h3>1. CHUYÊN NGÀNH DUY THEO ĐUỔI LÀ GÌ?</h3></summary>
+            <div class="about-faq-answer" id="about-faq-answer-1">
+              <p>Duy học đại học ngành Công Nghệ Thông Tin chuyên về phần mềm, trong thời gian đó Duy đã đầu quân chính thức cho tập đoàn MWG và quên đi điều mình yêu thích. Thật may Duy đã tận dụng điểm mạnh của mình áp dụng tốt công việc hiện tại. Mặc dù làm kinh doanh nhưng niềm đam mê với ngành vẫn còn và tạo nên con người Duy bây giờ 🥰</p>
+            </div>
+          </details>
+        </article>
+        <article class="about-faq-item">
+          <details class="about-faq-details">
+            <summary aria-controls="about-faq-answer-2"><h3>2. VỀ SỰ NGHIỆP, DUY CÓ ĐANG LO SỢ ĐIỀU GÌ?</h3></summary>
+            <div class="about-faq-answer" id="about-faq-answer-2">
+              <p>Có lẽ hơn 3 năm đầu quân vào các tập đoàn lớn cũng như gặp gỡ được rất nhiều sếp và đồng nghiệp thì Duy có thể tự đánh giá được mình là ai, năng lực của chính mình và nó đủ lớn để góp phần vào thành công, nơi mà Duy sẽ tiếp tục dừng chân phát triển. 💖</p>
+            </div>
+          </details>
+        </article>
+        <article class="about-faq-item">
+          <details class="about-faq-details">
+            <summary aria-controls="about-faq-answer-3"><h3>3. ĐIỀU GÌ SẼ THÚC ĐẨY DUY TRONG CÔNG VIỆC VÀ CUỘC SỐNG?</h3></summary>
+            <div class="about-faq-answer" id="about-faq-answer-3">
+              <p>Nếu đã biết rõ về Duy, bạn sẽ biết Duy theo đuổi những thứ hoàn hảo đặc biệt là khi đạt được thành tựu hoặc 1 thành phẩm, 1 dự án nào đó. Đây sẽ là thứ thúc đẩy Duy cố gắng làm việc và lâu dài.</p>
+            </div>
+          </details>
+        </article>
+        <article class="about-faq-item">
+          <details class="about-faq-details">
+            <summary aria-controls="about-faq-answer-4"><h3>4. DUY ĐÃ SUY TÍNH TƯƠNG LAI MÌNH SAU 10 HAY 20 NĂM NỮA CHƯA?</h3></summary>
+            <div class="about-faq-answer" id="about-faq-answer-4">
+              <p>Chà!, Duy thích sự tự do trong cuộc sống đời thường của mình mà không cần phải tính toán trước. Nhưng lại luôn đặt mục tiêu liên tục cho 2 hay 3 năm tới. Nghe có vẻ nghịch nhưng đây là Duy, tự do nhưng phải có kiểm soát 😎</p>
+            </div>
+          </details>
+        </article>
+        <article class="about-faq-item">
+          <details class="about-faq-details">
+            <summary aria-controls="about-faq-answer-5"><h3>5. NẾU MUỐN HỌC HỎI GÌ ĐÓ TỪ DUY, THÌ DUY CÓ SẴN LÒNG?</h3></summary>
+            <div class="about-faq-answer" id="about-faq-answer-5">
+              <p>Hoàn toàn chào đón, sẵn lòng và hoàn toàn miễn phí luôn nhé 🥰</p>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+    <section class="about-hobby-cta" aria-labelledby="about-hobby-title">
+      <h2 id="about-hobby-title">Tạm hết rồi, khám phá điều thú vị qua <a class="about-hobby-link" href="/about/hobby" target="_blank" rel="noopener noreferrer">Hobby<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg></a> của mình nhé!</h2>
+    </section>
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="contact-inner">
+        <figure class="contact-photo">
+          <img src="assets/images/shared/contact.jpg" width="600" height="800" alt="Ảnh mẫu cho phần liên hệ, tỷ lệ 3:4" loading="lazy" decoding="async" />
+          <button class="contact-photo-explore" type="button" aria-label="Khám phá thông tin về Duy. Chạm hoặc nhấn Enter để xem lần lượt." hidden>
+            <span class="contact-photo-zones" aria-hidden="true"></span>
+          </button>
+        </figure>
+        <div class="contact-copy">
+        <h2 class="contact-title" id="contact-title">Let's Work <span>Together</span></h2>
+        <form class="contact-form" aria-describedby="contact-status">
+          <div class="contact-field">
+            <label for="contact-name">Name</label>
+            <input id="contact-name" name="name" type="text" placeholder="Your Name" autocomplete="name" required />
+          </div>
+          <div class="contact-field">
+            <label for="contact-email">Email</label>
+            <input id="contact-email" name="email" type="email" placeholder="Your@email.com" autocomplete="email" required />
+          </div>
+          <div class="contact-field contact-field--full">
+            <label for="contact-service">How can i help you?</label>
+            <select id="contact-service" name="service">
+              <option value="">Lựa chọn</option>
+              <option>Leader thực hiện dự án</option>
+              <option>Leader vận hành thương mại điện tử</option>
+              <option>Nhân viên xây dựng quy trình hệ thống</option>
+              <option>Nhân viên phân tích dữ liệu</option>
+            </select>
+          </div>
+          <div class="contact-field contact-field--full">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" placeholder="Write for me"></textarea>
+          </div>
+          <button class="contact-submit" type="submit" disabled>Submit</button>
+          <p class="contact-status" id="contact-status" role="status"></p>
+        </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-top">
+        <address class="site-footer-contacts">
+          <div><span>Email</span><a href="mailto:NQAD667723@gmail.com">NQAD667723@gmail.com</a></div>
+          <div><span>Điện thoại</span><a href="tel:+84866214216">0866 214 216</a></div>
+        </address>
+        <nav class="site-footer-socials" aria-label="Mạng xã hội">
+          <a href="https://www.linkedin.com/in/anh-duy-1b3a44378/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M7 10v7m4-4v4m0-4a3 3 0 1 1 6 0v4m-6-4v-3M7.125 6.75H7m.25 0a.25.25 0 1 1-.5 0a.25.25 0 0 1 .5 0"/><path d="M3 12c0-4.243 0-6.364 1.318-7.682S7.758 3 12 3s6.364 0 7.682 1.318S21 7.758 21 12s0 6.364-1.318 7.682S16.242 21 12 21s-6.364 0-7.682-1.318S3 16.242 3 12"/></g></svg>
+          </a>
+          <a href="https://zalo.me/0866214216" target="_blank" rel="noopener noreferrer" aria-label="Zalo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M12 3c-5 0-9 3.6-9 8 0 2.1.9 4 2.4 5.4L4 21l4.8-2.4c1 .3 2.1.4 3.2.4 5 0 9-3.6 9-8s-4-8-9-8Z"/>
+              <path d="M8.5 8h7l-7 6h7"/>
+            </svg>
+          </a>
+          <a href="https://www.bloomebridal.com/" target="_blank" rel="noopener noreferrer" aria-label="Website">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="9"/>
+              <ellipse cx="12" cy="12" rx="4" ry="9"/>
+              <path d="M3 12h18M5 6.5c4.2 2 9.8 2 14 0M5 17.5c4.2-2 9.8-2 14 0"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+      <p class="site-footer-copyright">© 2026 · Bản quyền thuộc về <a href="https://zalo.me/0866214216" target="_blank" rel="noopener noreferrer">NUT</a>.</p>
+    </div>
+  </footer>
+  <script src="src/scripts/shared/topbar.js?v=3" defer></script>
+  <script src="src/scripts/shared/topbar-music.js?v=3" defer></script>
+  <script src="src/scripts/pages/about/stats.js?v=1" defer></script>
+  <script src="src/scripts/pages/about/badge.js?v=1" defer></script>
+  <script src="assets/vendor/apexcharts/apexcharts.min.js?v=8.8.2" defer></script>
+  <script src="src/scripts/pages/about/radar.js?v=2" defer></script>
+  <script src="src/scripts/pages/about/skills.js?v=4" defer></script>
+  <script src="src/scripts/pages/about/tools.js?v=4" defer></script>
+  <script src="src/scripts/shared/contact.js?v=9" defer></script>
+</body>
+</html>

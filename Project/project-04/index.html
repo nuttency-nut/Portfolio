@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
+  <base href="/" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon/favicon.svg?v=1" />
+  <title>Phát triển kênh bán trực tiếp — Nguyễn Quốc Anh Duy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600&family=Be+Vietnam+Pro:wght@400&family=Oswald:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/styles/shared/background.css?v=20261111-4" />
+  <link rel="stylesheet" href="src/styles/shared/topbar.css?v=4" />
+  <link rel="stylesheet" href="src/styles/shared/contact.css?v=10" />
+  <link rel="stylesheet" href="src/styles/shared/page-layout.css?v=1" />
+  <link rel="stylesheet" href="src/styles/pages/projects/main.css?v=4" />
+  <link rel="stylesheet" href="src/styles/shared/footer.css?v=4" />
+</head>
+<body class="project-page">
+  <div class="topbar-wrap" id="topbar">
+    <nav class="topbar" aria-label="Điều hướng chính">
+      <ul class="nav-links">
+        <li><a href="/" data-scroll-target="home">Home</a></li>
+        <li><a href="/Project" class="active" aria-current="page">Project</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/" data-contact-dialog aria-haspopup="dialog" aria-controls="contact-dialog">Contact</a></li>
+      </ul>
+
+      <div class="topbar-music" data-playing="false">
+        <button class="music-toggle" type="button" aria-label="Phát nhạc" aria-pressed="false" disabled>
+          <svg class="music-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5Z" fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5" /></svg>
+          <svg class="music-icon-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor" /><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor" /></svg>
+        </button>
+        <div class="music-copy">
+          <div class="music-title-window"><div class="music-title-track"><span class="music-title">Chờ anh chút thôi (Không lời)</span></div></div>
+          <span class="music-artist">CONGB</span>
+        </div>
+        <span class="music-status" role="status" hidden></span>
+        <audio class="music-audio" src="assets/audio/background/cho-anh-chut-thoi-khong-loi.mp3" preload="none" loop></audio>
+      </div>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/anh-duy-1b3a44378/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M7 10v7m4-4v4m0-4a3 3 0 1 1 6 0v4m-6-4v-3M7.125 6.75H7m.25 0a.25.25 0 1 1-.5 0a.25.25 0 0 1 .5 0"/><path d="M3 12c0-4.243 0-6.364 1.318-7.682S7.758 3 12 3s6.364 0 7.682 1.318S21 7.758 21 12s0 6.364-1.318 7.682S16.242 21 12 21s-6.364 0-7.682-1.318S3 16.242 3 12"/></g></svg>
+        </a>
+        <a href="https://zalo.me/0866214216" target="_blank" rel="noopener noreferrer" aria-label="Zalo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M12 3c-5 0-9 3.6-9 8 0 2.1.9 4 2.4 5.4L4 21l4.8-2.4c1 .3 2.1.4 3.2.4 5 0 9-3.6 9-8s-4-8-9-8Z"/>
+            <path d="M8.5 8h7l-7 6h7"/>
+          </svg>
+        </a>
+        <a href="https://www.bloomebridal.com/" target="_blank" rel="noopener noreferrer" aria-label="Website">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="9"/>
+            <ellipse cx="12" cy="12" rx="4" ry="9"/>
+            <path d="M3 12h18M5 6.5c4.2 2 9.8 2 14 0M5 17.5c4.2-2 9.8-2 14 0"/>
+          </svg>
+        </a>
+      </div>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Mở menu" aria-controls="mobileMenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5h16M4 12h16M4 19h16"/></svg>
+      </button>
+    </nav>
+
+    <!-- Menu cho điện thoại -->
+    <div class="mobile-menu" id="mobileMenu" aria-label="Điều hướng điện thoại" hidden inert>
+      <a href="/" data-scroll-target="home">Home</a>
+      <a href="/Project" class="active" aria-current="page">Project</a>
+      <a href="/about">About</a>
+      <a href="/" data-contact-dialog aria-haspopup="dialog" aria-controls="contact-dialog">Contact</a>
+    </div>
+  </div>
+  <main class="project-content project-detail" id="project-content" aria-labelledby="project-title">
+    <a class="project-back" href="/Project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6" /></svg>Tất cả dự án</a>
+    <header class="project-detail-header">
+      <div><h1 id="project-title">Phát triển kênh bán trực tiếp</h1><p class="project-lead">Kết nối nội dung, sản phẩm và vận hành để xây dựng trải nghiệm mua sắm liền mạch.</p></div>
+      <dl class="project-facts"><div><dt>Vai trò</dt><dd>Phát triển kênh D2C</dd></div><div><dt>Phạm vi</dt><dd>Nội dung &amp; Vận hành kênh bán</dd></div><div><dt>Thời gian</dt><dd>20XX – 20XX</dd></div></dl>
+    </header>
+    <figure class="project-media project-hero" data-image-state="loading"><img src="assets/images/projects/project-04/hero.svg" width="360" height="540" alt="Ảnh tổng quan mẫu của dự án kênh bán trực tiếp" decoding="async" fetchpriority="high" /><span class="project-skeleton" aria-hidden="true"></span><span class="project-image-error" hidden>Ảnh chưa sẵn sàng</span></figure>
+    <section class="project-description" aria-labelledby="project-description-title">
+      <h2 id="project-description-title">Về dự án</h2>
+      <div class="project-description-copy"><p>Đây là một tình huống mẫu về phát triển kênh bán trực tiếp: khách hàng tìm thấy sản phẩm qua nội dung, cần được tư vấn phù hợp và tiếp tục được chăm sóc sau khi mua.</p><p>Hướng triển khai minh họa tập trung vào sự nhất quán giữa thông tin sản phẩm, cách tư vấn và luồng xử lý đơn. Mỗi điểm chạm cần giúp khách hàng hiểu sản phẩm rõ hơn và đội ngũ phối hợp thuận tiện hơn.</p><p>Các nội dung và điểm chạm trong tình huống mẫu được xem như một hành trình chung, từ lần đầu biết tới sản phẩm đến lúc cần hỗ trợ sau mua. Đây là nền tảng để tiếp tục thử nghiệm và điều chỉnh trải nghiệm.</p></div>
+    </section>
+    <!-- project-gallery:start -->
+    <section aria-labelledby="project-gallery-title">
+      <div class="project-gallery-heading"><h2 id="project-gallery-title">Hình ảnh liên quan</h2><p class="project-note">4 ảnh</p></div>
+      <div class="project-gallery">
+        <figure class="project-media" data-image-state="loading"><img src="assets/images/projects/project-04/related/anh-01.svg?v=1794593485879568600-452" width="1200" height="900" alt="Ảnh liên quan 1: anh-01" loading="lazy" decoding="async" /><span class="project-skeleton" aria-hidden="true"></span><span class="project-image-error" hidden>Ảnh chưa sẵn sàng</span></figure>
+        <figure class="project-media" data-image-state="loading"><img src="assets/images/projects/project-04/related/anh-02.svg?v=1794593485880569700-452" width="1200" height="900" alt="Ảnh liên quan 2: anh-02" loading="lazy" decoding="async" /><span class="project-skeleton" aria-hidden="true"></span><span class="project-image-error" hidden>Ảnh chưa sẵn sàng</span></figure>
+        <figure class="project-media" data-image-state="loading"><img src="assets/images/projects/project-04/related/anh-03.svg?v=1794593485881570000-452" width="1200" height="900" alt="Ảnh liên quan 3: anh-03" loading="lazy" decoding="async" /><span class="project-skeleton" aria-hidden="true"></span><span class="project-image-error" hidden>Ảnh chưa sẵn sàng</span></figure>
+        <figure class="project-media" data-image-state="loading"><img src="assets/images/projects/project-04/related/anh-04.svg?v=1794593485881570000-447" width="1200" height="900" alt="Ảnh liên quan 4: anh-04" loading="lazy" decoding="async" /><span class="project-skeleton" aria-hidden="true"></span><span class="project-image-error" hidden>Ảnh chưa sẵn sàng</span></figure>
+      </div>
+    </section>
+    <!-- project-gallery:end -->
+  </main>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-top">
+        <address class="site-footer-contacts">
+          <div><span>Email</span><a href="mailto:NQAD667723@gmail.com">NQAD667723@gmail.com</a></div>
+          <div><span>Điện thoại</span><a href="tel:+84866214216">0866 214 216</a></div>
+        </address>
+        <nav class="site-footer-socials" aria-label="Mạng xã hội">
+          <a href="https://www.linkedin.com/in/anh-duy-1b3a44378/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M7 10v7m4-4v4m0-4a3 3 0 1 1 6 0v4m-6-4v-3M7.125 6.75H7m.25 0a.25.25 0 1 1-.5 0a.25.25 0 0 1 .5 0"/><path d="M3 12c0-4.243 0-6.364 1.318-7.682S7.758 3 12 3s6.364 0 7.682 1.318S21 7.758 21 12s0 6.364-1.318 7.682S16.242 21 12 21s-6.364 0-7.682-1.318S3 16.242 3 12"/></g></svg>
+          </a>
+          <a href="https://zalo.me/0866214216" target="_blank" rel="noopener noreferrer" aria-label="Zalo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M12 3c-5 0-9 3.6-9 8 0 2.1.9 4 2.4 5.4L4 21l4.8-2.4c1 .3 2.1.4 3.2.4 5 0 9-3.6 9-8s-4-8-9-8Z"/>
+              <path d="M8.5 8h7l-7 6h7"/>
+            </svg>
+          </a>
+          <a href="https://www.bloomebridal.com/" target="_blank" rel="noopener noreferrer" aria-label="Website">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="9"/>
+              <ellipse cx="12" cy="12" rx="4" ry="9"/>
+              <path d="M3 12h18M5 6.5c4.2 2 9.8 2 14 0M5 17.5c4.2-2 9.8-2 14 0"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+      <p class="site-footer-copyright">© 2026 · Bản quyền thuộc về <a href="https://zalo.me/0866214216" target="_blank" rel="noopener noreferrer">NUT</a>.</p>
+    </div>
+  </footer>
+  <script src="src/scripts/shared/topbar.js?v=3" defer></script>
+  <script src="src/scripts/shared/contact.js?v=9" defer></script>
+  <script src="src/scripts/shared/topbar-music.js?v=3" defer></script>
+  <script src="src/scripts/pages/projects/images.js?v=1" defer></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+:root { color-scheme: light; }
+html, body { margin: 0; min-height: 100%; }
+body { position: relative; background: #f9faff; }
+
+.portfolio-background {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 100vh;
+  height: 100svh;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: #f9faff;
+  contain: layout paint;
+}
+.scene { position: absolute; inset: 0; }
+.background-art {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  animation: background-breathe 26s ease-in-out infinite alternate;
+}
+
+.dot {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: clamp(6px, .66vw, 11px);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: var(--color, #cfdaf7);
+}
+.dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--color, #cfdaf7);
+  border-radius: inherit;
+  animation: background-pulse 3.2s ease-out var(--delay, 0s) infinite;
+}
+.dot--1 { --x: 33.57%; --y: 7.55%; }
+.dot--2 { --x: 8.8%; --y: 27.84%; --delay: -.6s; }
+.dot--3 { --x: 67.14%; --y: 17.64%; --color: #bfe8d6; --delay: -1.2s; }
+.dot--4 { --x: 92.28%; --y: 39.53%; --color: #d3d6f7; --delay: -1.8s; }
+.dot--5 { --x: 8.92%; --y: 69.29%; --delay: -2.4s; }
+.dot--6 { --x: 89.11%; --y: 71.84%; --color: #bfe8d6; --delay: -.9s; }
+.dot--7 { --x: 71.81%; --y: 81.4%; --delay: -2.1s; }
+
+.icon {
+  /* Keep TikTok's top edge below the desktop bar, including its wobble. */
+  --icon-offset-y: max(72px, calc(132px + clamp(30px, 4vw, 60px) - 13.6vh));
+  position: absolute;
+  left: var(--x);
+  top: calc(var(--y) + var(--icon-offset-y));
+  width: clamp(60px, 8vw, 120px);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  transform-origin: 50% 60%;
+  animation: background-wobble var(--duration, 6s) ease-in-out var(--delay, 0s) infinite;
+}
+.icon img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.icon--shopee { --x: 19.45%; --y: 21.9%; --duration: 5.2s; }
+.icon--tiktok { --x: 74.21%; --y: 13.6%; --duration: 6s; --delay: -1.3s; }
+.icon--lazada { --x: 86.47%; --y: 36.34%; --duration: 5.6s; --delay: -2.7s; }
+.icon--website { --x: 8.92%; --y: 42.29%; --duration: 6.4s; --delay: -.8s; }
+.icon--tiki { --x: 91.98%; --y: 60.47%; --duration: 5s; --delay: -3.4s; }
+.icon--facebook { --x: 14.78%; --y: 72.58%; --duration: 5.8s; --delay: -2s; }
+.icon--zalo { --x: 81.87%; --y: 79.28%; --duration: 6.2s; --delay: -4.1s; }
+
+@media (min-width: 1024px) {
+  .icon--shopee { top: calc(108px + clamp(30px, 4vw, 60px)); }
+}
+
+@keyframes background-breathe {
+  from { transform: scale(1); }
+  to { transform: scale(1.025); }
+}
+@keyframes background-wobble {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  25% { transform: translateY(-5%) rotate(-3deg); }
+  65% { transform: translateY(-2%) rotate(3deg); }
+}
+@keyframes background-pulse {
+  from { opacity: .7; transform: scale(1); }
+  to { opacity: 0; transform: scale(3.6); }
+}
+
+@media (max-width: 767px) {
+  .icon { --icon-offset-y: 24px; width: clamp(48px, 15vw, 64px); }
+  .icon--shopee { --x: 12%; --y: 19%; }
+  .icon--tiktok { --x: 86%; --y: 20%; }
+  .icon--lazada { --x: 10%; --y: 44%; }
+  .icon--website { --x: 15%; --y: 70%; }
+  .icon--tiki { --x: 86%; --y: 49%; }
+  .icon--facebook { --x: 10%; --y: 86%; }
+  .icon--zalo { --x: 85%; --y: 84%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .background-art, .icon, .dot::after { animation: none; }
+  .dot::after { display: none; }
+}
+
+#portfolio-content { position: relative; min-height: 100vh; min-height: 100svh; }
+
+.home-background-continuation {
+  min-height: 200vh;
+  min-height: 200svh;
+  background: #f9faff url("../../../assets/images/background/continuation.svg") center top / 100% 200svh repeat-y;
+}

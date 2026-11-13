@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1671 1882" preserveAspectRatio="none" fill="none">
+  <!-- Mirror the existing vector field at each join for a continuous, repeatable background. -->
+  <defs>
+    <radialGradient id="blue"><stop stop-color="#dce6ff" stop-opacity=".78"/><stop offset="1" stop-color="#dce6ff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="mint"><stop stop-color="#d5f2eb" stop-opacity=".68"/><stop offset="1" stop-color="#d5f2eb" stop-opacity="0"/></radialGradient>
+    <radialGradient id="lilac"><stop stop-color="#e6e4ff" stop-opacity=".6"/><stop offset="1" stop-color="#e6e4ff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="blue-wave" x1="0" y1="700" x2="790" y2="941" gradientUnits="userSpaceOnUse"><stop stop-color="#e7edff" stop-opacity=".8"/><stop offset="1" stop-color="#edf2ff" stop-opacity=".15"/></linearGradient>
+    <linearGradient id="mint-wave" x1="1671" y1="580" x2="970" y2="941" gradientUnits="userSpaceOnUse"><stop stop-color="#e0f3f4" stop-opacity=".72"/><stop offset="1" stop-color="#e5f5f0" stop-opacity=".2"/></linearGradient>
+    <g id="field">
+      <path fill="#f9faff" d="M0 0h1671v941H0z"/>
+      <ellipse cx="80" cy="0" rx="750" ry="520" fill="url(#blue)"/>
+      <ellipse cx="1650" cy="90" rx="620" ry="490" fill="url(#mint)"/>
+      <ellipse cx="70" cy="910" rx="690" ry="410" fill="url(#lilac)"/>
+      <ellipse cx="1580" cy="960" rx="760" ry="500" fill="url(#mint)"/>
+      <path d="M0 745c163-7 155 110 340 130s290 49 460 66H0V745Z" fill="url(#blue-wave)"/>
+      <path d="M1671 626c-169 31-166 150-356 148s-225 73-342 90-157 55-226 77h924V626Z" fill="url(#mint-wave)"/>
+      <path d="M1671 784c-139 2-209 72-351 82s-207 48-267 75h618V784Z" fill="#def0f6" opacity=".3"/>
+      <g stroke="#cdd8ee" stroke-width="1" stroke-dasharray="3 6" stroke-linecap="round" opacity=".65">
+        <path d="M-120 710C12 603 82 668 149 652s383 58 643 83 236 113 408 31 174-126 289-90 197-56 311-56" vector-effect="non-scaling-stroke"/>
+      </g>
+    </g>
+    <clipPath id="tile"><path d="M0 0h1671v941H0z"/></clipPath>
+  </defs>
+  <g transform="translate(0 941) scale(1 -1)" clip-path="url(#tile)"><use href="#field"/></g>
+  <g transform="translate(0 941)" clip-path="url(#tile)"><use href="#field"/></g>
+</svg>

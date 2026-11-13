@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon/favicon.svg?v=1" />
+  <title>E-commerce Portfolio – Animated Background</title>
+  <link rel="stylesheet" href="src/styles/shared/background.css?v=20261111-4" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/styles/shared/topbar.css?v=4" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/styles/pages/home/lanyard.css?v=2" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400&family=Caveat:wght@500&family=Oswald:wght@200;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/styles/pages/home/hero-title.css?v=20" />
+  <link rel="stylesheet" href="src/styles/pages/home/work-timeline.css?v=15" />
+  <link rel="stylesheet" href="src/styles/pages/home/scroll-story.css?v=19" />
+  <link rel="stylesheet" href="src/styles/pages/home/testimonials.css?v=3" />
+  <link rel="stylesheet" href="src/styles/shared/contact.css?v=10" />
+  <link rel="stylesheet" href="src/styles/shared/footer.css?v=4" />
+  <noscript><style>.hero-line > span { animation: none !important; }</style></noscript>
+</head>
+<body id="home">
+  <div class="portfolio-background" aria-hidden="true">
+    <div class="scene">
+      <img class="background-art" src="assets/images/background/hero.svg" width="1671" height="941" alt="" decoding="async" fetchpriority="low" />
+      <span class="dot dot--1"></span>
+      <span class="dot dot--2"></span>
+      <span class="dot dot--3"></span>
+      <span class="dot dot--4"></span>
+      <span class="dot dot--5"></span>
+      <span class="dot dot--6"></span>
+      <span class="dot dot--7"></span>
+      <div class="icon icon--shopee"><img src="assets/images/background/icons/shopee.webp" width="320" height="320" alt="" decoding="async" fetchpriority="low" /></div>
+      <div class="icon icon--tiktok"><img src="assets/images/background/icons/tiktok.webp" width="320" height="320" alt="" decoding="async" fetchpriority="low" /></div>
+      <div class="icon icon--lazada"><img src="assets/images/background/icons/lazada.webp" width="320" height="320" alt="" decoding="async" fetchpriority="low" /></div>
+      <div class="icon icon--website"><img src="assets/images/background/icons/website.webp" width="320" height="320" alt="" decoding="async" fetchpriority="low" /></div>
+      <div class="icon icon--tiki"><img src="assets/images/background/icons/tiki.webp" width="320" height="320" alt="" decoding="async" fetchpriority="low" /></div>
+      <div class="icon icon--facebook"><img src="assets/images/background/icons/facebook.webp" width="320" height="320" alt="" decoding="async" fetchpriority="low" /></div>
+      <div class="icon icon--zalo"><img src="assets/images/background/icons/zalo.webp" width="320" height="320" alt="" decoding="async" fetchpriority="low" /></div>
+    </div>
+  </div>
+
+  <div class="topbar-wrap" id="topbar">
+    <nav class="topbar" aria-label="Điều hướng chính">
+      <ul class="nav-links">
+        <li><a href="/" data-scroll-target="home" class="active" aria-current="page">Home</a></li>
+        <li><a href="/Project">Project</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/" data-contact-dialog aria-haspopup="dialog" aria-controls="contact-dialog">Contact</a></li>
+      </ul>
+
+      <div class="topbar-music" data-playing="false">
+        <button class="music-toggle" type="button" aria-label="Phát nhạc" aria-pressed="false" disabled>
+          <svg class="music-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5Z" fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5" /></svg>
+          <svg class="music-icon-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor" /><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor" /></svg>
+        </button>
+        <div class="music-copy">
+          <div class="music-title-window"><div class="music-title-track"><span class="music-title">Chờ anh chút thôi (Không lời)</span></div></div>
+          <span class="music-artist">CONGB</span>
+        </div>
+        <span class="music-status" role="status" hidden></span>
+        <audio class="music-audio" src="assets/audio/background/cho-anh-chut-thoi-khong-loi.mp3" preload="none" loop></audio>
+      </div>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/anh-duy-1b3a44378/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M7 10v7m4-4v4m0-4a3 3 0 1 1 6 0v4m-6-4v-3M7.125 6.75H7m.25 0a.25.25 0 1 1-.5 0a.25.25 0 0 1 .5 0"/><path d="M3 12c0-4.243 0-6.364 1.318-7.682S7.758 3 12 3s6.364 0 7.682 1.318S21 7.758 21 12s0 6.364-1.318 7.682S16.242 21 12 21s-6.364 0-7.682-1.318S3 16.242 3 12"/></g></svg>
+        </a>
+        <a href="https://zalo.me/0866214216" target="_blank" rel="noopener noreferrer" aria-label="Zalo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M12 3c-5 0-9 3.6-9 8 0 2.1.9 4 2.4 5.4L4 21l4.8-2.4c1 .3 2.1.4 3.2.4 5 0 9-3.6 9-8s-4-8-9-8Z"/>
+            <path d="M8.5 8h7l-7 6h7"/>
+          </svg>
+        </a>
+        <a href="https://www.bloomebridal.com/" target="_blank" rel="noopener noreferrer" aria-label="Website">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="9"/>
+            <ellipse cx="12" cy="12" rx="4" ry="9"/>
+            <path d="M3 12h18M5 6.5c4.2 2 9.8 2 14 0M5 17.5c4.2-2 9.8-2 14 0"/>
+          </svg>
+        </a>
+      </div>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Mở menu" aria-controls="mobileMenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5h16M4 12h16M4 19h16"/></svg>
+      </button>
+    </nav>
+
+    <!-- Menu cho điện thoại -->
+    <div class="mobile-menu" id="mobileMenu" aria-label="Điều hướng điện thoại" hidden inert>
+      <a href="/" data-scroll-target="home" class="active" aria-current="page">Home</a>
+      <a href="/Project">Project</a>
+      <a href="/about">About</a>
+      <a href="/" data-contact-dialog aria-haspopup="dialog" aria-controls="contact-dialog">Contact</a>
+    </div>
+  </div>
+
+  <!-- Đặt nội dung portfolio vào đây. -->
+  <div class="lanyard-card-container">
+    <div class="lanyard" id="lanyard"></div>
+  </div>
+
+  <main id="portfolio-content">
+    <section class="hero-intro" aria-labelledby="hero-title">
+      <div class="hero-copy">
+      <h1 class="hero-title" id="hero-title">
+        <span class="hero-line hero-name"><span><span class="hero-first-name">NGUYỄN</span> QUỐC</span></span>
+        <span class="hero-line hero-name"><span>ANH DUY</span></span>
+        <span class="hero-roles">
+          <span class="hero-line hero-role hero-role--business"><span>Kinh Doanh</span></span>
+          <em class="hero-line hero-role hero-role--commerce"><span>E-COMMERCE</span></em>
+        </span>
+      </h1>
+      <p class="hero-description"><span class="hero-description-source">Cảm ơn bạn đã ghé thăm! Mình là ai?
+Là cá nhân có thế mạnh vận hành và kinh doanh nền tảng TMĐT - đặc biệt là sàn TMĐT,
+được nuôi dưỡng bởi tập đoàn retail lớn đã tạo nên con người mình.</span><span class="hero-description-typed" aria-hidden="true"></span></p>
+      </div>
+    </section>
+    <div class="home-background-continuation">
+      <section class="work-timeline-section" id="work" aria-labelledby="work-timeline-title">
+        <h2 class="work-timeline-heading" id="work-timeline-title">Hành trình khám phá tính cách<br>ℰ<br>Đón nhận thế giới quan của mình.</h2>
+        <div class="work-timeline" tabindex="0" role="region" aria-label="Các mốc công việc">
+          <div class="work-timeline-inner">
+            <div class="work-timeline-track">
+              <div class="work-timeline-bar"><div class="work-timeline-fill"></div></div>
+              <div class="work-timeline-runner" aria-hidden="true">
+                <span class="work-timeline-bubble">I'm here!</span>
+                <img class="work-timeline-avatar" src="assets/images/home/lanyard/portrait.jpg" width="80" height="80" alt="" loading="lazy" />
+              </div>
+            </div>
+            <!-- Dữ liệu mẫu: thay tên, thời gian, vị trí và mô tả tại từng mốc. -->
+            <div class="work-timeline-items">
+              <article class="work-timeline-item">
+                <h3><button class="work-timeline-select" type="button">THCS</button></h3>
+                <template class="work-timeline-photo-sources">
+                  <img src="assets/images/home/timeline/moc-01/anh-01.jpg" alt="Ảnh 1 của mốc 1" />
+                  <img src="assets/images/home/timeline/moc-01/anh-02.jpg" alt="Ảnh 2 của mốc 1" />
+                  <img src="assets/images/home/timeline/moc-01/anh-03.jpg" alt="Ảnh 3 của mốc 1" />
+                </template>
+                <p class="work-timeline-years">2012 - 2016</p>
+                <div class="work-timeline-role"><h4>Trương Công Định</h4><p>Tại đây Duy đã được đánh thức khả năng và năng khiếu toán học của mình, dựa vào nó để bước tiếp chặn đường lớn hơn.</p></div>
+              </article>
+              <article class="work-timeline-item">
+                <h3><button class="work-timeline-select" type="button">THPT</button></h3>
+                <template class="work-timeline-photo-sources">
+                  <img src="assets/images/home/timeline/moc-02/anh-01.jpg" alt="Ảnh 1 của mốc 2" />
+                  <img src="assets/images/home/timeline/moc-02/anh-02.jpg" alt="Ảnh 2 của mốc 2" />
+                  <img src="assets/images/home/timeline/moc-02/anh-03.jpg" alt="Ảnh 3 của mốc 2" />
+                </template>
+                <p class="work-timeline-years">2016 - 2019</p>
+                <div class="work-timeline-role"><h4>Trần Văn Giàu</h4><p>Môi trường học tập chuyên nghiệp kết hợp các hoạt động của trường đã tạo nên tính cách hoạt bát giúp thúc đẩy tư duy học tập của Duy ở mức cao nhất.</p></div>
+              </article>
+              <article class="work-timeline-item">
+                <h3><button class="work-timeline-select" type="button">University</button></h3>
+                <template class="work-timeline-photo-sources">
+                  <img src="assets/images/home/timeline/moc-03/anh-01.jpg" alt="Ảnh 1 của mốc 3" />
+                  <img src="assets/images/home/timeline/moc-03/anh-02.jpg" alt="Ảnh 2 của mốc 3" />
+                  <img src="assets/images/home/timeline/moc-03/anh-03.jpg" alt="Ảnh 3 của mốc 3" />
+                </template>
+                <p class="work-timeline-years">2019 - 2022</p>
+                <div class="work-timeline-role"><h4>Thủy Lợi cơ sở 2</h4><p>Gặp gỡ các mối quan hệ mới, giảng viên có kinh nghiệm thực chiến giảng dạy đã giúp Duy định hướng và tưởng tượng được sẽ là ai trong vô vàn thị trường lao động ngoài kia.</p></div>
+              </article>
+              <article class="work-timeline-item">
+                <h3><button class="work-timeline-select" type="button">Retail Group</button></h3>
+                <template class="work-timeline-photo-sources">
+                  <img src="assets/images/home/timeline/moc-04/anh-01.jpg" alt="Ảnh 1 của mốc 4" />
+                  <img src="assets/images/home/timeline/moc-04/anh-02.jpg" alt="Ảnh 2 của mốc 4" />
+                  <img src="assets/images/home/timeline/moc-04/anh-03.jpg" alt="Ảnh 3 của mốc 4" />
+                </template>
+                <p class="work-timeline-years">2022 - Q1:2026</p>
+                <div class="work-timeline-role"><h4>Tập đoàn bán lẻ</h4><p>Nắm bắt cơ hội gia nhập tập đoàn với quy mô lớn và chuyên nghiệp, là nền tảng rất vững chắc nuôi dưỡng kỹ năng mềm/cứng bản thân.</p></div>
+              </article>
+              <article class="work-timeline-item">
+                <h3><button class="work-timeline-select" type="button">MFG & Retail Company</button></h3>
+                <template class="work-timeline-photo-sources">
+                  <img src="assets/images/home/timeline/moc-05/anh-01.jpg" alt="Ảnh 1 của mốc 5" />
+                  <img src="assets/images/home/timeline/moc-05/anh-02.jpg" alt="Ảnh 2 của mốc 5" />
+                  <img src="assets/images/home/timeline/moc-05/anh-03.jpg" alt="Ảnh 3 của mốc 5" />
+                </template>
+                <p class="work-timeline-years">August:2026 - Present</p>
+                <div class="work-timeline-role"><h4>Sản xuất và bán lẻ</h4><p>Quyết định thay đổi mô hình, ngành hàng kinh doanh phục vụ cho mục đích học tập, đa giác quan hơn, nhiều góc nhìn hơn cho chính bản thân mình.</p></div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="scroll-story-container">
+      <section class="scroll-story" aria-labelledby="scroll-story-title">
+        <h2 class="scroll-story-heading" id="scroll-story-title">Khám phá bước ngoặc của Duy?</h2>
+        <p class="scroll-story-description"><span class="scroll-story-description-source">Từ một cậu sinh viên công nghệ thông tin chưa thể làm việc đúng chuyên ngành như mơ ước. Nhưng với niềm đam mê công nghệ và sự học hỏi không ngừng, mình đã bước tiếp và đón nhận những giá trị khác mà doanh nghiệp và mình tạo nên…</span><span class="scroll-story-description-typed" aria-hidden="true"></span></p>
+        <div class="scroll-story-body">
+        <svg class="scroll-story-track" aria-hidden="true" focusable="false" fill="none">
+          <defs>
+            <mask id="story-path-mask" maskUnits="userSpaceOnUse">
+              <path class="scroll-story-mask" stroke="white" stroke-width="6" stroke-linejoin="round" />
+            </mask>
+            <radialGradient id="story-glow">
+              <stop stop-color="#6c47ff" stop-opacity=".8" />
+              <stop offset="1" stop-color="#6c47ff" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+          <path class="scroll-story-rail" stroke="#cdd8e8" stroke-width="6" stroke-linejoin="round" />
+          <g mask="url(#story-path-mask)"><circle class="scroll-story-glow" r="84" fill="url(#story-glow)" /></g>
+          <circle class="scroll-story-dot" r="7" fill="#4f46e5" />
+        </svg>
+        <svg class="scroll-story-hint" viewBox="0 0 244 80" aria-hidden="true" focusable="false" hidden>
+          <defs>
+            <mask id="story-hint-mask" maskUnits="userSpaceOnUse" x="-8" y="-16" width="260" height="112">
+              <path class="story-hint-wipe" d="M0 14H218C248 66 65 92 8 66" pathLength="1" fill="none" stroke="white" stroke-width="52" stroke-dasharray="1 1" />
+            </mask>
+          </defs>
+          <g mask="url(#story-hint-mask)">
+            <text x="12" y="26" transform="rotate(-4 12 26)">click to expand all</text>
+            <path d="M200 29C236 70 53 83 8 66M16 59L8 66L19 73" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+        </svg>
+        <button class="scroll-story-dot-toggle" type="button" aria-label="Mở rộng tất cả các mốc" aria-controls="story-details-1 story-details-2 story-details-3 story-details-4 story-details-5" aria-expanded="false" hidden><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 6h6" /><path class="story-dot-vertical" d="M6 3v6" /></svg></button>
+        <!-- Nội dung mẫu: mỗi article là một chặng, ảnh dọc tỷ lệ 2:3. -->
+        <article class="scroll-story-row">
+          <figure class="scroll-story-photo">
+            <button class="scroll-story-photo-toggle" type="button" aria-label="Xem 4 ảnh của chặng 1" aria-expanded="false">
+              <img src="assets/images/home/journey/moc-01/anh-01.svg" width="360" height="540" alt="Ảnh 1 của chặng 1" loading="lazy" decoding="async" />
+              <img src="assets/images/home/journey/moc-01/anh-02.svg" width="360" height="540" alt="Ảnh 2 của chặng 1" loading="lazy" decoding="async" />
+              <img src="assets/images/home/journey/moc-01/anh-03.svg" width="360" height="540" alt="Ảnh 3 của chặng 1" loading="lazy" decoding="async" />
+              <img src="assets/images/home/journey/moc-01/anh-04.svg" width="360" height="540" alt="Ảnh 4 của chặng 1" loading="lazy" decoding="async" />
+            </button>
+          </figure>
+          <div class="scroll-story-content">
+            <div class="scroll-story-heading-group">
+              <img class="scroll-story-company-logo" src="assets/images/home/journey/moc-01/logo.png" width="128" height="128" alt="Logo công ty chặng 1 (ảnh mẫu)" loading="lazy" decoding="async" />
+              <h3>Công ty cổ phần Thế Giới Di Động</h3>
+              <div class="scroll-story-meta">
+                <p class="scroll-story-position">PART-TIME TELESALE</p>
+                <p class="scroll-story-period">(2022 – 2023)</p>
+              </div>
+            </div>
+            <details class="scroll-story-details" id="story-details-1">
+              <summary><span class="story-details-show">Xem chi tiết</span><span class="story-details-hide">Thu gọn</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg></summary>
+              <div class="scroll-story-details-copy">
+                <p>Bước chân đầu tiên đưa Duy vào ngành bán lẻ: tư vấn và chốt đơn qua điện thoại, lắng nghe nhu cầu thật của khách thay vì chỉ đọc kịch bản.</p>
+                <p>Giai đoạn đó đã dạy Duy hai thứ — hiểu khách hàng đang cần gì, mình mới hiểu cần bán gì. Đó cũng là kỹ năng/nền tảng để Duy bước lên vị trí quản lý telesale sau đó.</p>
+                <div class="scroll-story-lesson">
+                  <h4>Điều Duy học được</h4>
+                  <p>Muốn xây được tòa nhà cao, thì cái nền móng là bước bắt buộc.</p>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+        <article class="scroll-story-row">
+          <figure class="scroll-story-photo">
+            <button class="scroll-story-photo-toggle" type="button" aria-label="Xem 4 ảnh của chặng 2" aria-expanded="false">
+              <img src="assets/images/home/journey/moc-02/anh-01.svg" width="360" height="540" alt="Ảnh 1 của chặng 2" loading="lazy" decoding="async" />
+              <img src="assets/images/home/journey/moc-02/anh-02.svg" width="360" height="540" alt="Ảnh 2 của chặng 2" loading="lazy" decoding="async" />
+              <img src="assets/images/home/journey/moc-02/anh-03.svg" width="360" height="540" alt="Ảnh 3 của chặng 2" loading="lazy" decoding="async" />
+              <img src="assets/images/home/journey/moc-02/anh-04.svg" width="360" height="540" alt="Ảnh 4 của chặng 2" loading="lazy" decoding="async" />
+            </button>
+          </figure>
+          <div class="scroll-story-content">
+            <div class="scroll-story-heading-group">
+              <img class="scroll-story-company-logo" src="assets/images/home/journey/moc-02/logo.png" width="128" height="128" alt="Logo công ty chặng 2 (ảnh mẫu)" loading="lazy" decoding="async" />
+              <h3>Công ty cổ phần Thế Giới Di Động</h3>
+              <div class="scroll-story-meta">
+                <p class="scroll-story-position">B2C Channel Administrator</p>
+                <p class="scroll-story-period">(2023 – 2024)</p>
+              </div>
+            </div>
+            <details class="scroll-story-details" id="story-details-2">
+              <summary><span class="story-details-show">Xem chi tiết</span><span class="story-details-hide">Thu gọn</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg></summary>
+              <div class="scroll-story-details-copy">
+                <p>Từ một telesale, Duy đậu và quản lý hơn 50 nhân sự telesale từ xa trên Hotline, Facebook và Zalo — theo dõi hiệu suất từng người, đảm bảo bộ phận chạy liên tục và đúng định hướng chăm sóc khách hàng của công ty.</p> 
+                <p>Song Song đó Duy còn được tham gia từ đầu các dự án mới của bộ phận để tối ưu chi phí và quy trình vận hành.</p>
+                <div class="scroll-story-lesson">
+                  <h4>Điều Duy học được</h4>
+                  <p>Quản lý con người khó hơn quản lý con số, một quy trình rõ ràng giúp cả team đỡ mệt hơn rất nhiều.</p>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+        <article class="scroll-story-row">
+          <figure class="scroll-story-photo">
+            <button class="scroll-story-photo-toggle" type="button" aria-label="Xem 4 ảnh của chặng 3" aria-expanded="false">
+              <img src="assets/images/home/journey/moc-03/anh-01.svg" width="360" height="540" alt="Ảnh 1 của chặng 3" loading="lazy" decoding="async" />
+              <img src="assets/images/home/journey/moc-03/anh-02.svg" width="360" height="540" alt="Ảnh 2 của chặng 3" loading="lazy" decoding="async" />
+              <img src="assets/images/home/journey/moc-03/anh-03.svg" width="360" height="540" alt="Ảnh 3 của chặng 3" loading="lazy" decoding="async" />
+              <img src="assets/images/home/journey/moc-03/anh-04.svg" width="360" height="540" alt="Ảnh 4 của chặng 3" loading="lazy" decoding="async" />
+            </button>
+          </figure>
+          <div class="scroll-story-content">
+            <div class="scroll-story-heading-group">
+              <img class="scroll-story-company-logo" src="assets/images/home/journey/moc-03/logo.png" width="128" height="128" alt="Logo công ty chặng 3 (ảnh mẫu)" loading="lazy" decoding="async" />
+              <h3>Công ty cổ phần Thế Giới Di Động</h3>
+              <div class="scroll-story-meta">
+                <p class="scroll-story-position">E-commerce Operations Team Leader</p>
+                <p class="scroll-story-period">(2024 – 2025)</p>
+              </div>
+            </div>
+            <details class="scroll-story-details" id="story-details-3">
+              <summary><span class="story-details-show">Xem chi tiết</span><span class="story-details-hide">Thu gọn</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg></summary>
+              <div class="scroll-story-details-copy">
+                <p>Bước ngoặt lớn từ đây: Duy phụ trách vận hành 4 thương hiệu của tập đoàn trên sàn — Thế Giới Di Động, Điện Máy Xanh, AVAKids và Nhà thuốc An Khang — từ SEO, hình ảnh, giá bán đến toàn bộ hoạt động gian hàng.</p>
+                <p>Duy làm việc trực tiếp với đội BD của sàn, phân tích dữ liệu vận hành mỗi ngày và hoạch định doanh số theo tháng.</p>
+                <div class="scroll-story-lesson">
+                  <h4>Điều Duy học được</h4>
+                  <p>Quản trị giá, lợi nhuận và trải nghiệm khách cùng lúc. Sự bình tĩnh, kiên nhẫn và quản trị cảm xúc giúp mình trình bày ý kiến thuận lợi hơn.</p>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+        <article class="scroll-story-row">
+          <figure class="scroll-story-photo">
+            <button class="scroll-story-photo-toggle" type="button" aria-label="Xem 4 ảnh của chặng 4" aria-expanded="false">
+              <img src="assets/images/home/journey/moc-04/anh-01.svg" width="360" height="540" alt="Ảnh 1 của chặng 4" loading="lazy" decoding="async" />
+              <img src="assets/images/home/journey/moc-04/anh-02.svg" width="360" height="540" alt="Ảnh 2 của chặng 4" loading="lazy" decoding="async" />
+              <img src="assets/images/home/journey/moc-04/anh-03.svg" width="360" height="540" alt="Ảnh 3 của chặng 4" loading="lazy" decoding="async" />
+              <img src="assets/images/home/journey/moc-04/anh-04.svg" width="360" height="540" alt="Ảnh 4 của chặng 4" loading="lazy" decoding="async" />
+            </button>
+          </figure>
+          <div class="scroll-story-content">
+            <div class="scroll-story-heading-group">
+              <img class="scroll-story-company-logo" src="assets/images/home/journey/moc-04/logo.png" width="128" height="128" alt="Logo công ty chặng 4 (ảnh mẫu)" loading="lazy" decoding="async" />
+              <h3>Công ty cổ phần công nghệ Di Động Việt</h3>
+              <div class="scroll-story-meta">
+                <p class="scroll-story-position">E-commerce Operations Team Leader</p>
+                <p class="scroll-story-period">(2025 – 2026)</p>
+              </div>
+            </div>
+            <details class="scroll-story-details" id="story-details-4">
+              <summary><span class="story-details-show">Xem chi tiết</span><span class="story-details-hide">Thu gọn</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg></summary>
+              <div class="scroll-story-details-copy">
+                <p>Di Động Việt, Duy xây dựng kế hoạch marketing bán hàng Apple trên sàn và trình bày trực tiếp với Apple Việt Nam, đồng thời phối hợp cùng MCN vận hành các phiên livestream mega/daily và booking KOL cho chiến dịch ra mắt sản phẩm.</p>
+                <p>Duy cũng thống nhất trải nghiệm mua hàng và quyền lợi khách giữa kênh online và offline.</p>
+                <div class="scroll-story-lesson">
+                  <h4>Điều Duy học được</h4>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, numquam, voluptates nisi</p>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+        <article class="scroll-story-row">
+          <figure class="scroll-story-photo">
+            <button class="scroll-story-photo-toggle" type="button" aria-label="Xem 4 ảnh của chặng 5" aria-expanded="false">
+              <img src="assets/images/home/journey/moc-05/anh-01.svg" width="360" height="540" alt="Ảnh 1 của chặng 5" loading="lazy" decoding="async" />
+              <img src="assets/images/home/journey/moc-05/anh-02.svg" width="360" height="540" alt="Ảnh 2 của chặng 5" loading="lazy" decoding="async" />
+              <img src="assets/images/home/journey/moc-05/anh-03.svg" width="360" height="540" alt="Ảnh 3 của chặng 5" loading="lazy" decoding="async" />
+              <img src="assets/images/home/journey/moc-05/anh-04.svg" width="360" height="540" alt="Ảnh 4 của chặng 5" loading="lazy" decoding="async" />
+            </button>
+          </figure>
+          <div class="scroll-story-content">
+            <div class="scroll-story-heading-group">
+              <img class="scroll-story-company-logo" src="assets/images/home/journey/moc-05/logo.png" width="128" height="128" alt="Logo công ty chặng 5 (ảnh mẫu)" loading="lazy" decoding="async" />
+              <h3>Công ty TNHH Mỹ Phẩm Maria</h3>
+              <div class="scroll-story-meta">
+                <p class="scroll-story-position">D2C Channel Operations Specialist</p>
+                <p class="scroll-story-period">(August:2026 – Present)</p>
+              </div>
+            </div>
+            <details class="scroll-story-details" id="story-details-5">
+              <summary><span class="story-details-show">Xem chi tiết</span><span class="story-details-hide">Thu gọn</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg></summary>
+              <div class="scroll-story-details-copy">
+                <p>Hiện tại Duy vận hành kênh D2C của Maria Cosmetics — đề xuất chương trình trade dựa trên dữ liệu bán hàng, chạy CRM để tăng tỷ lệ khách quay lại trên Website, Fanpage và Zalo OA (qua Haravan), lập báo cáo P&L và theo dõi tiến độ doanh số theo mục tiêu.</p>
+                <p>Phối hợp Kinh doanh — Kho — Kế toán để xây quy trình bán hàng chuẩn, kiểm soát chi phí đầu tư trên doanh thu và giữ vững SLA cam kết với khách.</p>
+                <div class="scroll-story-lesson">
+                  <h4>Điều Duy học được</h4>
+                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet pariatur debitis impedit reru</p>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+        </div>
+      </section>
+      <!-- Bản hiển thị desktop; nội dung được lấy từ bài học trong từng chặng. -->
+      <aside class="scroll-story-lessons" aria-hidden="true" hidden>
+        <div class="scroll-story-lessons-sticky">
+          <h2>Điều Duy học được</h2>
+          <div class="scroll-story-lesson-quotes"></div>
+        </div>
+      </aside>
+      </div>
+      <section class="testimonials" aria-labelledby="testimonials-title">
+        <div class="testimonials-heading">
+          <div>
+            <h2 id="testimonials-title">Đồng đội đã đánh giá mình như thế nào?</h2>
+            <p>Đây là những góp ý của quản lý các cấp, đồng đội của Duy trong quá trình làm việc, cùng nhau vượt qua khó khăn và không ngại thử thách!</p>
+          </div>
+        </div>
+        <svg class="testimonials-symbols" aria-hidden="true" focusable="false"><defs><symbol id="testimonial-star" viewBox="0 0 24 24"><path d="m12 2.5 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5-4.7-4.6 6.5-.9Z" /></symbol></defs></svg>
+        <div class="testimonials-window" id="testimonials-window" tabindex="0" role="region" aria-label="Nhận xét đồng nghiệp. Giữ và kéo trái/phải, hoặc dùng phím mũi tên để xem. Thả tay để tự chạy tiếp.">
+          <div class="testimonials-track">
+            <div class="testimonials-group" role="list">
+              <figure class="testimonial-card" role="listitem">
+                <svg class="testimonial-stars" viewBox="0 0 136 24" role="img" aria-label="5 trên 5 sao"><use href="#testimonial-star" width="24" height="24" /><use href="#testimonial-star" x="28" width="24" height="24" /><use href="#testimonial-star" x="56" width="24" height="24" /><use href="#testimonial-star" x="84" width="24" height="24" /><use href="#testimonial-star" x="112" width="24" height="24" /></svg>
+                <blockquote><p>Em có đầu óc của sự sáng tạo, xếp em vào công việc lặp đi lặp lại thì thật là phí.</p></blockquote>
+                <figcaption><img src="assets/images/home/testimonials/avatars/dong-nghiep-01.png" width="64" height="64" alt="" loading="lazy" decoding="async" /><div><strong>Đỗ Tấn Đạt</strong><span>Trưởng bộ phận kinh doanh - TMĐT</span></div></figcaption>
+              </figure>
+              <figure class="testimonial-card" role="listitem">
+                <svg class="testimonial-stars" viewBox="0 0 136 24" role="img" aria-label="5 trên 5 sao"><use href="#testimonial-star" width="24" height="24" /><use href="#testimonial-star" x="28" width="24" height="24" /><use href="#testimonial-star" x="56" width="24" height="24" /><use href="#testimonial-star" x="84" width="24" height="24" /><use href="#testimonial-star" x="112" width="24" height="24" /></svg>
+                <blockquote><p>Có nhiều cái anh không biết, nhưng anh được học hỏi từ em, rất hữu dụng 😁.</p></blockquote>
+                <figcaption><img src="assets/images/home/testimonials/avatars/dong-nghiep-02.png" width="64" height="64" alt="" loading="lazy" decoding="async" /><div><strong>Võ Mạnh Thành Nhân</strong><span>Quản lý Online</span></div></figcaption>
+              </figure>
+              <figure class="testimonial-card" role="listitem">
+                <svg class="testimonial-stars" viewBox="0 0 136 24" role="img" aria-label="5 trên 5 sao"><use href="#testimonial-star" width="24" height="24" /><use href="#testimonial-star" x="28" width="24" height="24" /><use href="#testimonial-star" x="56" width="24" height="24" /><use href="#testimonial-star" x="84" width="24" height="24" /><use href="#testimonial-star" x="112" width="24" height="24" /></svg>
+                <blockquote><p>Duy rất tốt. Chơi rất hợp với chị.</p></blockquote>
+                <figcaption><img src="assets/images/home/testimonials/avatars/dong-nghiep-03.png" width="64" height="64" alt="" loading="lazy" decoding="async" /><div><strong>Thái Thị Mỹ Xuân</strong><span>Quản Trị Viên</span></div></figcaption>
+              </figure>
+              <figure class="testimonial-card" role="listitem">
+                <svg class="testimonial-stars" viewBox="0 0 136 24" role="img" aria-label="5 trên 5 sao"><use href="#testimonial-star" width="24" height="24" /><use href="#testimonial-star" x="28" width="24" height="24" /><use href="#testimonial-star" x="56" width="24" height="24" /><use href="#testimonial-star" x="84" width="24" height="24" /><use href="#testimonial-star" x="112" width="24" height="24" /></svg>
+                <blockquote><p>Rất nhiệt tình với chị.</p></blockquote>
+                <figcaption><img src="assets/images/home/testimonials/avatars/dong-nghiep-04.png" width="64" height="64" alt="" loading="lazy" decoding="async" /><div><strong>Nguyễn Thị Ngọc Huyền</strong><span>Quản Trị Viên</span></div></figcaption>
+              </figure>
+              <figure class="testimonial-card" role="listitem">
+                <svg class="testimonial-stars" viewBox="0 0 136 24" role="img" aria-label="5 trên 5 sao"><use href="#testimonial-star" width="24" height="24" /><use href="#testimonial-star" x="28" width="24" height="24" /><use href="#testimonial-star" x="56" width="24" height="24" /><use href="#testimonial-star" x="84" width="24" height="24" /><use href="#testimonial-star" x="112" width="24" height="24" /></svg>
+                <blockquote><p>Nhiệt tình, trách nhiệm, luôn say Yes Hỗ trợ đồng đội tốt.</p></blockquote>
+                <figcaption><img src="assets/images/home/testimonials/avatars/dong-nghiep-05.png" width="64" height="64" alt="" loading="lazy" decoding="async" /><div><strong>Quỳnh Giao</strong><span>Phát triển bán hàng</span></div></figcaption>
+              </figure>
+              <figure class="testimonial-card" role="listitem">
+                <svg class="testimonial-stars" viewBox="0 0 136 24" role="img" aria-label="5 trên 5 sao"><use href="#testimonial-star" width="24" height="24" /><use href="#testimonial-star" x="28" width="24" height="24" /><use href="#testimonial-star" x="56" width="24" height="24" /><use href="#testimonial-star" x="84" width="24" height="24" /><use href="#testimonial-star" x="112" width="24" height="24" /></svg>
+                <blockquote><p>Lúc đầu thấy rất khó tính, nhưng làm việc lâu thì mới biết em rất kỹ tính.</p></blockquote>
+                <figcaption><img src="assets/images/home/testimonials/avatars/dong-nghiep-06.png" width="64" height="64" alt="" loading="lazy" decoding="async" /><div><strong>Sỹ Tâm</strong><span>Nhân viên Ecommerce</span></div></figcaption>
+              </figure>
+              <figure class="testimonial-card" role="listitem">
+                <svg class="testimonial-stars" viewBox="0 0 136 24" role="img" aria-label="5 trên 5 sao"><use href="#testimonial-star" width="24" height="24" /><use href="#testimonial-star" x="28" width="24" height="24" /><use href="#testimonial-star" x="56" width="24" height="24" /><use href="#testimonial-star" x="84" width="24" height="24" /><use href="#testimonial-star" x="112" width="24" height="24" /></svg>
+                <blockquote><p>Rất nhiệt tình và hăng hái với task được giao, báo cáo chi tiết và trực quan, quản trị task tốt.</p></blockquote>
+                <figcaption><img src="assets/images/home/testimonials/avatars/dong-nghiep-07.png" width="64" height="64" alt="" loading="lazy" decoding="async" /><div><strong>Ngô Ngọc Minh</strong><span>Phó giám đốc Marketing</span></div></figcaption>
+              </figure>
+              <figure class="testimonial-card" role="listitem">
+                <svg class="testimonial-stars" viewBox="0 0 136 24" role="img" aria-label="5 trên 5 sao"><use href="#testimonial-star" width="24" height="24" /><use href="#testimonial-star" x="28" width="24" height="24" /><use href="#testimonial-star" x="56" width="24" height="24" /><use href="#testimonial-star" x="84" width="24" height="24" /><use href="#testimonial-star" x="112" width="24" height="24" /></svg>
+                <blockquote><p>Một đồng nghiệp chủ động và luôn hỗ trợ chia sẻ. Tinh thần làm việc nhiệt tình, trách nhiệm và đôi lúc hơi thẳng tính &lt;3. </p></blockquote>
+                <figcaption><img src="assets/images/home/testimonials/avatars/dong-nghiep-08.png" width="64" height="64" alt="" loading="lazy" decoding="async" /><div><strong>Phương Liên</strong><span>Trade Marketing</span></div></figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="contact-inner">
+          <figure class="contact-photo">
+            <img src="assets/images/shared/contact.jpg" width="600" height="800" alt="Ảnh mẫu cho phần liên hệ, tỷ lệ 3:4" loading="lazy" decoding="async" />
+            <button class="contact-photo-explore" type="button" aria-label="Khám phá thông tin về Duy. Chạm hoặc nhấn Enter để xem lần lượt." hidden>
+              <span class="contact-photo-zones" aria-hidden="true"></span>
+            </button>
+          </figure>
+          <div class="contact-copy">
+          <h2 class="contact-title" id="contact-title">Let's Work <span>Together</span></h2>
+          <form class="contact-form" aria-describedby="contact-status">
+            <div class="contact-field">
+              <label for="contact-name">Name</label>
+              <input id="contact-name" name="name" type="text" placeholder="Your Name" autocomplete="name" required />
+            </div>
+            <div class="contact-field">
+              <label for="contact-email">Email</label>
+              <input id="contact-email" name="email" type="email" placeholder="Your@email.com" autocomplete="email" required />
+            </div>
+            <div class="contact-field contact-field--full">
+              <label for="contact-service">How can i help you?</label>
+              <select id="contact-service" name="service">
+                <option value="">Lựa chọn</option>
+                <option>Leader thực hiện dự án</option>
+                <option>Leader vận hành thương mại điện tử</option>
+                <option>Nhân viên xây dựng quy trình hệ thống</option>
+                <option>Nhân viên phân tích dữ liệu</option>
+              </select>
+            </div>
+            <div class="contact-field contact-field--full">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" placeholder="Write for me"></textarea>
+            </div>
+            <button class="contact-submit" type="submit" disabled>Submit</button>
+            <p class="contact-status" id="contact-status" role="status"></p>
+          </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-top">
+        <address class="site-footer-contacts">
+          <div><span>Email</span><a href="mailto:nqad667723@gmail.com">nqad667723@gmail.com</a></div>
+          <div><span>Điện thoại</span><a href="tel:+84866214216">0866.214.216</a></div>
+        </address>
+        <nav class="site-footer-socials" aria-label="Mạng xã hội">
+          <a href="https://www.linkedin.com/in/anh-duy-1b3a44378/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M7 10v7m4-4v4m0-4a3 3 0 1 1 6 0v4m-6-4v-3M7.125 6.75H7m.25 0a.25.25 0 1 1-.5 0a.25.25 0 0 1 .5 0"/><path d="M3 12c0-4.243 0-6.364 1.318-7.682S7.758 3 12 3s6.364 0 7.682 1.318S21 7.758 21 12s0 6.364-1.318 7.682S16.242 21 12 21s-6.364 0-7.682-1.318S3 16.242 3 12"/></g></svg>
+          </a>
+          <a href="https://zalo.me/0866214216" target="_blank" rel="noopener noreferrer" aria-label="Zalo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M12 3c-5 0-9 3.6-9 8 0 2.1.9 4 2.4 5.4L4 21l4.8-2.4c1 .3 2.1.4 3.2.4 5 0 9-3.6 9-8s-4-8-9-8Z"/>
+              <path d="M8.5 8h7l-7 6h7"/>
+            </svg>
+          </a>
+          <a href="https://www.bloomebridal.com/" target="_blank" rel="noopener noreferrer" aria-label="Website">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="9"/>
+              <ellipse cx="12" cy="12" rx="4" ry="9"/>
+              <path d="M3 12h18M5 6.5c4.2 2 9.8 2 14 0M5 17.5c4.2-2 9.8-2 14 0"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+      <p class="site-footer-copyright">© 2026 · Bản quyền thuộc về <a href="https://zalo.me/0866214216" target="_blank" rel="noopener noreferrer">NUT</a>.</p>
+    </div>
+  </footer>
+  <script src="src/scripts/shared/topbar.js?v=3" defer></script>
+  <script src="src/scripts/shared/topbar-music.js?v=3" defer></script>
+  <script src="src/scripts/pages/home/hero-title.js?v=12" defer></script>
+  <script src="src/scripts/pages/home/work-timeline.js?v=10" defer></script>
+  <script src="src/scripts/pages/home/scroll-story.js?v=13" defer></script>
+  <script src="src/scripts/pages/home/testimonials.js?v=2" defer></script>
+  <script src="src/scripts/shared/contact.js?v=9" defer></script>
+  <script type="module" src="src/scripts/pages/home/lanyard.js?v=3"></script>
+</body>
+</html>
