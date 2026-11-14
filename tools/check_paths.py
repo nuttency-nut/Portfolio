@@ -1,12 +1,15 @@
 """Check local page/asset references without starting a server or installing dependencies."""
 from html.parser import HTMLParser
 from pathlib import Path
+import json
 import re
 from urllib.parse import unquote, urljoin, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 errors = []
 checked = set()
+routes = json.loads((ROOT / 'tools/routes.json').read_text(encoding='utf-8'))
+page_routes = {route['url'].strip('/'): ROOT / route['source'] for route in routes}
 
 
 def check(value, source, base='/'):
@@ -17,7 +20,7 @@ def check(value, source, base='/'):
     target = unquote(urlsplit(urljoin(base, value)).path).lstrip('/')
     path = ROOT / target
     checked.add(target)
-    if not path.is_file() and not (path.is_dir() and (path / 'index.html').is_file()):
+    if not path.is_file() and not page_routes.get(target.strip('/'), ROOT / '__missing__').is_file():
         errors.append(f'{source}: {value} -> {target}')
 
 
@@ -38,7 +41,7 @@ class Page(HTMLParser):
 
 
 if __name__ == '__main__':
-    for source in [ROOT / 'index.html', *(ROOT / 'Project').rglob('*.html'), *(ROOT / 'about').rglob('*.html')]:
+    for source in (ROOT / 'pages').rglob('*.html'):
         Page(source).feed(source.read_text(encoding='utf-8'))
     for source in (ROOT / 'src/styles').rglob('*.css'):
         for match in re.finditer(r'url\(\s*(["\x27]?)(.*?)\1\s*\)', source.read_text(encoding='utf-8')):

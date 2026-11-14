@@ -1,6 +1,6 @@
 # Ảnh cho timeline
 
-Đã tạo 5 thư mục và gắn sẵn đường dẫn trong `index.html`:
+Đã tạo 5 thư mục và gắn sẵn đường dẫn trong `pages/home.html`:
 
 | Mốc | Thư mục | Tên ảnh trong thư mục |
 | --- | --- | --- |
@@ -14,7 +14,7 @@ Ví dụ ảnh thứ hai của mốc 3: `assets/images/home/timeline/moc-03/anh-
 
 Trong mỗi thư mục đã có 3 ảnh JPG mẫu. Chép ảnh JPG thật đè lên đúng tên rồi tải lại trang, không cần sửa code. Ba file SVG bên ngoài là bản gốc để tạo ảnh mẫu.
 
-Nếu dùng PNG/WebP, giữ đúng định dạng và sửa đuôi file trong `src` của template `.work-timeline-photo-sources` thuộc mốc tương ứng ở `index.html`. Có thể sửa `alt` để mô tả ảnh thật.
+Nếu dùng PNG/WebP, giữ đúng định dạng và sửa đuôi file trong `src` của template `.work-timeline-photo-sources` thuộc mốc tương ứng ở `pages/home.html`. Có thể sửa `alt` để mô tả ảnh thật.
 
 - Mỗi mốc hiển thị tối đa 3 ảnh; nếu chỉ dùng 1 hoặc 2 ảnh, xóa các thẻ `img` thừa trong template để không hiện ảnh mẫu còn lại.
 - Khung nhỏ và khung xem lớn đều là 1:1. Ảnh vuông từ 600×600 px là phù hợp; ảnh tỷ lệ khác sẽ được crop giữa.

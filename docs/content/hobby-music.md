@@ -10,7 +10,7 @@ Các file MP3 được giữ nguyên âm thanh và chuẩn hóa tên trong `asse
 | Golden Hour | BILLKIN | `golden-hour.mp3` |
 | เธอ ๆ เพื่อนเราชอบ (Guess Who?) | SERIOUS BACON | `guess-who.mp3` |
 
-Mở `/about/hobby`, bấm thẻ nhạc để nghe. Bấm lại thẻ đang phát để tạm dừng hoặc phát tiếp. Chọn bài khác để đổi bài. Bấm ra ngoài để thu các thẻ lại và tạm dừng.
+Mở `/hobby`, bấm thẻ nhạc để nghe. Bấm lại thẻ đang phát để tạm dừng hoặc phát tiếp. Chọn bài khác để đổi bài. Bấm ra ngoài để thu các thẻ lại và tạm dừng.
 
 Player dùng âm lượng 40%, thanh tiến trình theo thời gian thật của file. Khi chưa có MP3, player hiện thông báo. Sau khi thêm file, có thể bấm lại thẻ để thử tải lại.
 

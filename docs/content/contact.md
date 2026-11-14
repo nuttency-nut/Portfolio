@@ -4,4 +4,4 @@ Hiệu ứng theo `hover-card_1.html`: ảnh 3:4 đứng yên, rê chuột trên
 
 Khung ảnh bên trái có tỷ lệ **3:4**. Gợi ý ảnh thật 900 × 1200 px hoặc 1200 × 1600 px.
 
-Ảnh hiện trỏ tới `assets/images/shared/contact.jpg`; thay đúng file này thì không cần sửa code. Nếu dùng `cover.png`/`cover.webp`, đổi `src` trong `index.html` sang đúng tên file. Cập nhật `alt` theo nội dung ảnh thật. Ảnh được căn giữa và crop vừa khung bằng `object-fit: cover`.
+Ảnh hiện trỏ tới `assets/images/shared/contact.jpg`; thay đúng file này thì không cần sửa code. Nếu dùng `cover.png`/`cover.webp`, đổi `src` trong `pages/home.html` sang đúng tên file. Cập nhật `alt` theo nội dung ảnh thật. Ảnh được căn giữa và crop vừa khung bằng `object-fit: cover`.

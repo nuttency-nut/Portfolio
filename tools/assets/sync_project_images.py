@@ -13,7 +13,7 @@ END = '<!-- project-gallery:end -->'
 
 
 def sync_project(root, folder):
-    page = root / 'Project' / folder.name / 'index.html'
+    page = root / 'pages/projects' / f'{folder.name}.html'
     if not page.is_file():
         return False
     with page.open(encoding='utf-8', newline='') as source:

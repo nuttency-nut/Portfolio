@@ -14,7 +14,7 @@ Bấm liên kết nội bộ giữa Home, Project, chi tiết dự án và About
 
 Trạng thái được chuyển qua `sessionStorage` trong cùng tab. Mỗi trang HTML tải một audio riêng, nên có thể có khoảng ngắt ngắn trong lúc chuyển trang.
 
-Muốn đổi bài khác, trong `index.html`:
+Muốn đổi bài khác, trong `pages/home.html`:
 
 1. Sửa chữ trong `.music-title` thành tên bài hát.
 2. Sửa chữ trong `.music-artist` thành tên ca sĩ.

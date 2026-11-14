@@ -4,7 +4,7 @@ from PIL import Image
 
 root = Path(__file__).resolve().parents[2]
 icons = root / "assets/images/background/icons"
-sources = root / "source-assets/background-icons"
+sources = root / "design-sources/background-icons"
 for name in ("facebook", "lazada", "shopee", "tiki", "tiktok", "website", "zalo"):
     source = sources / f"{name}-clean.png"
     target = icons / f"{name}.webp"

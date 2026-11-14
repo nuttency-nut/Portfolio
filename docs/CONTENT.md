@@ -1,10 +1,10 @@
 # Điền nội dung và thay tài nguyên
 
-Các đường dẫn dưới đây tính từ thư mục gốc dự án. Tên file không chứa dấu/khoảng trắng sẽ tiện quản lý hơn. Nếu đổi tên hoặc đuôi ảnh, sửa `src` tương ứng trong HTML/JS; gallery `related/` có script riêng tự đồng bộ.
+Các đường dẫn dưới đây tính từ thư mục gốc dự án. Chỉnh HTML trong `pages/`, xem trực tiếp bằng `npm run dev`; chạy `npm run build` để xuất sang `dist/`. Không sửa trực tiếp file HTML trong `dist/`. Tên file không chứa dấu/khoảng trắng sẽ tiện quản lý hơn. Nếu đổi tên hoặc đuôi ảnh, sửa `src` tương ứng trong HTML/JS; gallery `related/` có script riêng tự đồng bộ.
 
 ## Home
 
-Sửa chữ trực tiếp trong `index.html`:
+Sửa chữ trực tiếp trong `pages/home.html`:
 
 | Phần | Vị trí nội dung | Thư mục ảnh |
 | --- | --- | --- |
@@ -22,12 +22,12 @@ Chi tiết: [timeline](content/timeline.md), [journey](content/journey.md), [đ�
 
 ## About
 
-Sửa phần giới thiệu, bốn chỉ số, các ý kỹ năng, Q&A và liên kết Hobby trong `about/index.html`.
+Sửa phần giới thiệu, bốn chỉ số, các ý kỹ năng, Q&A và liên kết Hobby trong `pages/about.html`.
 
 - Ảnh chân dung chính: `assets/images/about/portrait.jpg`, khung 4:5.
 - Ảnh cạnh radar hiện tại: `assets/images/about/radar-photo.jpg`, khung 4:3. Nếu đổi tên file, sửa `.about-radar-photo img`.
 - Điểm/nhãn của 4 tab radar: object `groups` trong `src/scripts/pages/about/radar.js`. Đây vẫn là dữ liệu minh họa.
-- Logo ứng dụng: `assets/icons/apps/`; các link ứng dụng nằm trong `about/index.html`.
+- Logo ứng dụng: `assets/icons/apps/`; các link ứng dụng nằm trong `pages/about.html`.
 - Logo công ty trên thẻ tên đang lấy từ các thư mục `assets/images/home/journey/moc-0N/`.
 
 CSS/JS riêng ở `src/styles/pages/about/` và `src/scripts/pages/about/`.
@@ -43,13 +43,13 @@ assets/images/projects/project-01/
   related/         Mọi ảnh liên quan, không giới hạn số lượng
 ```
 
-Đổi `cover.svg`/`hero.svg` sang JPG/PNG/WebP thì cập nhật `src` trong trang danh sách/chi tiết. Thêm ảnh vào `related/` rồi chạy `python scripts/assets/sync_project_images.py --watch` để cập nhật gallery. Không sửa tay vùng `project-gallery:start` đến `project-gallery:end` vì script quản lý vùng này.
+Đổi `cover.svg`/`hero.svg` sang JPG/PNG/WebP thì cập nhật `src` trong trang danh sách/chi tiết. Thêm ảnh vào `related/` rồi chạy `python tools/assets/sync_project_images.py --watch` để cập nhật gallery. Không sửa tay vùng `project-gallery:start` đến `project-gallery:end` vì script quản lý vùng này.
 
 Xem [hướng dẫn dự án](content/projects.md).
 
 ## Hobby
 
-Nội dung Bento nằm trong `about/hobby/index.html`; logic riêng ở `src/scripts/pages/hobby/`.
+Nội dung Bento nằm trong `pages/hobby.html`; logic riêng ở `src/scripts/pages/hobby/`.
 
 | Loại | Thư mục |
 | --- | --- |
@@ -74,7 +74,7 @@ Năm tên MP3 đã được chuẩn hóa; nội dung âm thanh không đổi:
 ## Form, topbar, footer và nhạc nền
 
 - Ảnh Contact dùng chung: `assets/images/shared/contact.jpg`, khung 3:4.
-- Nội dung form cuối Home/About: `index.html` và `about/index.html`.
+- Nội dung form cuối Home/About: `pages/home.html` và `pages/about.html`.
 - Form popup: template trong `src/scripts/shared/contact.js`.
 - Topbar/footer: HTML của từng trang. Logic chung và CSS nằm trong các thư mục `src/scripts/shared/`, `src/styles/shared/`.
 - MP3 nền: `assets/audio/background/cho-anh-chut-thoi-khong-loi.mp3`. Đổi bài thì sửa tên bài/ca sĩ/`src` trong topbar các trang. Logic phát tiếp khi chuyển trang ở `src/scripts/shared/topbar-music.js`.
@@ -83,6 +83,6 @@ Năm tên MP3 đã được chuẩn hóa; nội dung âm thanh không đổi:
 
 ## Nền và icon thiết kế gốc
 
-Nền SVG ở `assets/images/background/`. WebP trang trí ở `assets/images/background/icons/`; PNG gốc giữ tại `source-assets/background-icons/`.
+Nền SVG ở `assets/images/background/`. WebP trang trí ở `assets/images/background/icons/`; PNG gốc giữ tại `design-sources/background-icons/`.
 
-Khi chỉnh PNG gốc, chạy `python scripts/assets/prepare_icons.py` để xuất lại WebP 320×320 (cần Pillow). Không cần chạy lại nếu chỉ sửa chữ hoặc ảnh khác.
+Khi chỉnh PNG gốc, chạy `python tools/assets/prepare_icons.py` để xuất lại WebP 320×320 (cần Pillow). Không cần chạy lại nếu chỉ sửa chữ hoặc ảnh khác.

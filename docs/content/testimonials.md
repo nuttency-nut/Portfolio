@@ -1,6 +1,6 @@
 # Đánh giá đồng nghiệp — tầng 4
 
-Đang dùng đúng **8 card**. Thay lời nhận xét, tên/chức danh trong 8 `.testimonial-card` ở `index.html`. Chỉ sửa nhóm gốc; JavaScript tự tạo bản sao để chạy vòng vô hạn. Card mới thứ 8 đang dùng nội dung và avatar mẫu.
+Đang dùng đúng **8 card**. Thay lời nhận xét, tên/chức danh trong 8 `.testimonial-card` ở `pages/home.html`. Chỉ sửa nhóm gốc; JavaScript tự tạo bản sao để chạy vòng vô hạn. Card mới thứ 8 đang dùng nội dung và avatar mẫu.
 
 Thư mục ảnh: **`assets/images/home/testimonials/avatars/`**.
 

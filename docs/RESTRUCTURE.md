@@ -1,6 +1,6 @@
 # Kế hoạch tái cấu trúc dự án
 
-Giữ nguyên nội dung, giao diện và các route `/`, `/Project/`, `/Project/project-01/` đến `project-04/`, `/about/`, `/about/hobby/`. Dự án tiếp tục là HTML/CSS/JavaScript tĩnh, không thêm bước build.
+Giữ nguyên nội dung và giao diện. HTML nguồn đã gom vào `pages/`, bản xuất tĩnh sinh trong `dist/`. Các route là `/`, `/Project/`, `/Project/project-01/` đến `project-04/`, `/about/` và Hobby mới tại `/hobby/`. Công cụ build/dev dùng Node.js có sẵn, không thêm thư viện hay framework.
 
 ## Các bước thực hiện
 
@@ -8,17 +8,20 @@ Giữ nguyên nội dung, giao diện và các route `/`, `/Project/`, `/Project
 - [x] Lưu bản khôi phục bên ngoài dự án; dọn ảnh chụp QA, cache và mock cũ không còn dùng.
 - [x] Gom CSS/JS thành `shared/` và `pages/{home,about,hobby,projects}/`.
 - [x] Gom tài nguyên vào `assets/`, tách ảnh, icon, audio, font, tài liệu và thư viện.
-- [x] Chuyển PNG gốc của bộ icon vào `source-assets/`; giữ nguyên ảnh, logo, PDF và nhạc người dùng cung cấp.
+- [x] Chuyển PNG gốc của bộ icon vào `design-sources/`; giữ nguyên ảnh, logo, PDF và nhạc người dùng cung cấp.
 - [x] Cập nhật toàn bộ đường dẫn, script xử lý ảnh và bài kiểm tra.
 - [x] Viết hướng dẫn mới về chạy web, điền nội dung và thay tài nguyên.
 - [x] Kiểm tra liên kết/tệp, các trang desktop/mobile, nhạc và những tương tác chính; dọn file phát sinh sau kiểm tra.
+- [x] Gom HTML nguồn vào `pages/`, thêm công cụ build/dev không dependency, chuyển Hobby sang `/hobby/`.
 
 ## Cấu trúc đích
 
 ```text
-index.html                 Trang Home
-Project/                   Danh sách và chi tiết dự án, giữ URL cũ
-about/                     About và Hobby, giữ URL cũ
+pages/
+  home.html                Home
+  about.html               About
+  hobby.html               Hobby tại /hobby/
+  projects/                Danh sách và 4 trang chi tiết
 assets/
   images/
     background/            Nền SVG, texture, icon trang trí
@@ -35,12 +38,16 @@ assets/
 src/
   scripts/{shared,pages}/   JavaScript dùng chung và theo trang
   styles/{shared,pages}/    CSS dùng chung và theo trang
-source-assets/             PNG icon gốc, không cần đưa lên hosting
-scripts/assets/            Chuẩn bị icon và đồng bộ gallery
+design-sources/             PNG icon gốc, không cần đưa lên hosting
+tools/assets/            Chuẩn bị icon và đồng bộ gallery
+tools/routes.json        Ánh xạ file HTML nguồn sang URL và file xuất
+tools/build.mjs          Xuất 8 trang và tài nguyên sang dist/
+tools/serve.mjs          Dev server/preview, tự reload khi sửa nguồn
 tests/{browser,unit}/      Các bài kiểm tra còn hữu ích
 docs/                      Hướng dẫn và kế hoạch này
 README.md                  Cách mở/chạy dự án
 PRODUCT.md                 Ngữ cảnh và yêu cầu sản phẩm
+dist/                      Bản xuất được sinh tự động, đã bỏ qua trong Git
 ```
 
 ## Nguyên tắc dọn
@@ -48,6 +55,8 @@ PRODUCT.md                 Ngữ cảnh và yêu cầu sản phẩm
 Xóa ảnh chụp/biên bản thử của công cụ, cache Python, placeholder `.gitkeep` trong thư mục đã có nội dung và các SVG/font thử cũ đã xác minh không còn dùng. Giữ các ảnh thật, nhạc, logo, file PDF và PNG thiết kế gốc. Các file mock trong thư mục dự án vẫn được giữ để người dùng thay riêng từng ảnh sau này.
 
 Kết quả kiểm tra và ảnh chụp thử phải nằm ngoài thư mục dự án, không tái tạo lại `.impeccable/review/`.
+
+Các file trong `dist/` được tạo lại bởi `npm run build`, không sửa trực tiếp. Khi phát triển dùng `npm run dev` và sửa HTML trong `pages/`. Hobby chỉ có route nội dung `/hobby/`; link trên About tiếp tục mở tab mới. Root `scripts/` đổi thành `tools/`, `source-assets/` đổi thành `design-sources/` để phân biệt rõ với JavaScript và tài nguyên chạy trên web.
 
 ## Kết quả
 
@@ -74,12 +83,12 @@ Kết quả kiểm tra và ảnh chụp thử phải nằm ngoài thư mục d�
 | MP3 nền / playlist | `assets/audio/background/`, `assets/audio/hobby/` |
 | Logo app / favicon | `assets/icons/apps/`, `assets/icons/favicon/` |
 | CV | `assets/documents/cv/` |
-| Script gallery | `scripts/assets/sync_project_images.py` |
+| Script gallery | `tools/assets/sync_project_images.py` |
 | Hướng dẫn thay nội dung | `docs/CONTENT.md` |
 
 ## Đã xác nhận
 
-- `python scripts/check_paths.py`: 166 đường dẫn nội bộ hợp lệ, gồm URL trong CSS và JS.
+- `python tools/check_paths.py`: 166 đường dẫn nội bộ hợp lệ, gồm URL trong CSS và JS.
 - Unit: gallery thêm/xóa/thay ảnh và tên file có dấu; lanyard khởi động có/không cache và vật lý ở 30/60/120 fps.
 - Browser: cả 8 route ở 1440px và 390px; ảnh nội bộ giải mã được, không có 404 hay lỗi JavaScript; phát được cả 5 MP3 Hobby.
 - Gallery: 4 trang chi tiết, skeleton/lỗi ảnh, thêm ảnh vượt giới hạn cũ, đồng bộ xong không còn ảnh QA.
@@ -92,3 +101,12 @@ Kết quả kiểm tra và ảnh chụp thử phải nằm ngoài thư mục d�
 Các bài kiểm tra cũ đã được cập nhật theo popup Contact hiện tại và đợi đúng sự kiện media, thay vì giả định trạng thái đổi đồng bộ ngay khi click. Test viewport 600px kiểm tra các chỉ số nằm trọn màn hình, không ép thêm khoảng trống 12px mà bản gốc không có.
 
 Bản khôi phục và manifest chuyển file được giữ ngoài thư mục dự án trong `%TEMP%/portfolio-restructure-b5nsg1jh/`. Ảnh chụp QA cũ không được đưa vào bản khôi phục này.
+
+## Xác nhận sau khi gom HTML nguồn
+
+- Build thành công đủ 8 trang. 178 file trong `assets/` và `src/` được sao chép nguyên byte vào `dist/`.
+- Cả dev và preview đều qua kiểm tra 8 route trên desktop/mobile, ảnh nội bộ, nhạc và khởi tạo các widget. Link Hobby từ About mở tab mới tại `/hobby/`.
+- `/hobby` chuyển về URL chuẩn `/hobby/`. Route Hobby cũ không còn được xuất hoặc phục vụ.
+- Dev server hỗ trợ tự reload khi sửa nguồn; preview phục vụ riêng bản `dist/`. Đã kiểm tra byte-range/HEAD để phát và tua MP3.
+- Gallery vẫn thêm/xóa/thay ảnh không giới hạn, cập nhật HTML nguồn trong `pages/projects/`; nội dung chữ của cả 8 trang và 7 PNG thiết kế gốc được đối chiếu với Git và giữ nguyên.
+- `dist/` đã được bỏ qua trong Git. Khi bàn giao, sửa trong `pages/`, `src/`, `assets/` và chạy build để xuất bản.

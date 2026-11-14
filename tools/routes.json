@@ -1,0 +1,10 @@
+[
+  { "url": "/", "source": "pages/home.html", "output": "index.html" },
+  { "url": "/Project/", "source": "pages/projects/index.html", "output": "Project/index.html" },
+  { "url": "/Project/project-01/", "source": "pages/projects/project-01.html", "output": "Project/project-01/index.html" },
+  { "url": "/Project/project-02/", "source": "pages/projects/project-02.html", "output": "Project/project-02/index.html" },
+  { "url": "/Project/project-03/", "source": "pages/projects/project-03.html", "output": "Project/project-03/index.html" },
+  { "url": "/Project/project-04/", "source": "pages/projects/project-04.html", "output": "Project/project-04/index.html" },
+  { "url": "/about/", "source": "pages/about.html", "output": "about/index.html" },
+  { "url": "/hobby/", "source": "pages/hobby.html", "output": "hobby/index.html" }
+]
