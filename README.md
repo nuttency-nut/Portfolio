@@ -1,6 +1,6 @@
 # Portfolio — Nguyễn Quốc Anh Duy
 
-Website HTML/CSS/JavaScript. HTML nguồn nằm trong `pages/`; bản xuất để đăng hosting nằm trong `dist/`. Dùng Node.js 20 trở lên, không cần cài dependency hay React.
+Website HTML/CSS/JavaScript. HTML nguồn nằm trong `pages/`; bản xuất để đăng hosting nằm trong `dist/`. Dùng Node.js 22.x, không cần cài dependency hay React.
 
 ## Chạy để chỉnh sửa
 
@@ -48,6 +48,12 @@ npm run preview
 Preview tại `http://localhost:4174/`. Chạy lại build khi nội dung nguồn thay đổi. Đưa **nội dung bên trong `dist/`** lên thư mục gốc của hosting; `index.html` và các thư mục route ở đó được tạo tự động.
 
 Đây vẫn là web tĩnh, hosting không cần Node.js hay Python. Không sửa file trong `dist/` vì lần build sau sẽ tạo lại thư mục này.
+
+### Vercel
+
+File `vercel.json` ở gốc dự án đã cấu hình Framework Preset là Other, Build Command là `npm run build` và Output Directory là `dist`. Root Directory trên Vercel để ở gốc repository, nơi có `package.json` và `vercel.json`.
+
+Đẩy các file cấu hình này lên GitHub để Vercel dùng trong lần deploy tiếp theo. Không cần đưa `dist/` vào Git; Vercel tạo thư mục này trong quá trình build. Node.js được cố định ở dòng 22.x trong `package.json`.
 
 ## Khi thêm ảnh liên quan cho dự án
 
