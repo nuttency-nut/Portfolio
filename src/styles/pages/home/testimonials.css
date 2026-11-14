@@ -1,5 +1,5 @@
 .testimonials {
-  padding-block: 24px 32px;
+  padding-block: 24px 16px;
   color: #253858;
   font: 400 15px/1.7 "Be Vietnam Pro", Arial, sans-serif;
 }
@@ -17,7 +17,7 @@
 .testimonials-heading p { margin: 0; color: #52627a; font-size: 13px; }
 .testimonials-window:focus-visible { outline: 2px solid #2455af; outline-offset: 3px; }
 .testimonials-symbols { position: absolute; width: 0; height: 0; overflow: hidden; }
-.testimonials-window { overflow-x: auto; padding-block: 12px 36px; scrollbar-width: thin; scrollbar-color: #a6b6d1 transparent; }
+.testimonials-window { overflow-x: auto; padding-block: 12px 24px; scrollbar-width: thin; scrollbar-color: #a6b6d1 transparent; }
 .testimonials-track { display: flex; width: max-content; }
 .testimonials-group { display: flex; gap: 24px; min-width: 100vw; padding-right: 24px; }
 .testimonial-card {

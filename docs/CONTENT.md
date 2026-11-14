@@ -76,7 +76,8 @@ Năm tên MP3 đã được chuẩn hóa; nội dung âm thanh không đổi:
 - Ảnh Contact dùng chung: `assets/images/shared/contact.jpg`, khung 3:4.
 - Nội dung form cuối Home/About: `pages/home.html` và `pages/about.html`.
 - Form popup: template trong `src/scripts/shared/contact.js`.
-- Topbar/footer: HTML của từng trang. Logic chung và CSS nằm trong các thư mục `src/scripts/shared/`, `src/styles/shared/`.
+- Footer dùng chung: sửa nội dung tại `src/scripts/shared/footer.js`, giao diện tại `src/styles/shared/footer.css`. Home, About, Project và các trang chi tiết gọi cùng component qua `<footer data-site-footer>` và script này; Hobby không có footer.
+- Topbar: HTML của từng trang; logic chung và CSS nằm trong các thư mục `src/scripts/shared/`, `src/styles/shared/`.
 - MP3 nền: `assets/audio/background/cho-anh-chut-thoi-khong-loi.mp3`. Đổi bài thì sửa tên bài/ca sĩ/`src` trong topbar các trang. Logic phát tiếp khi chuyển trang ở `src/scripts/shared/topbar-music.js`.
 - Favicon: `assets/icons/favicon/favicon.svg`, dùng chung cho mọi trang.
 - CV giữ tại `assets/documents/cv/`; hiện không có nút tải CV trên Home/About.

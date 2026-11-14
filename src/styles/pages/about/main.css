@@ -13,7 +13,14 @@
 
 .about-page { --about-top: clamp(160px, 16svh, 208px); }
 .about-page .project-content { padding-block: 0; }
-.about-first-screen { padding-top: var(--about-top); }
+.about-first-screen {
+  box-sizing: border-box;
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+  padding-top: var(--about-top);
+  align-content: start;
+}
 .about-hero { padding-bottom: 64px; }
 .about-hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: center; gap: 64px; }
 .about-hero h1 { margin: 0; color: var(--text-primary); font: 700 clamp(44px, 4vw, 64px)/1.15 Oswald, "Arial Narrow", sans-serif; letter-spacing: -.02em; text-wrap: balance; }

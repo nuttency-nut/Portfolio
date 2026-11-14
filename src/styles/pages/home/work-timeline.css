@@ -4,7 +4,7 @@
   --timeline-muted: #52627a;
   --timeline-fill: #a5baf1;
   box-sizing: border-box;
-  padding-block: 48px 96px;
+  padding-block: 48px 64px;
   scroll-margin-top: 128px;
   color: var(--timeline-ink);
   font: 400 16px/1.6 "Be Vietnam Pro", Arial, sans-serif;
@@ -12,8 +12,7 @@
 .work-timeline-section *, .work-timeline-section *::before,
 .work-timeline-section *::after { box-sizing: border-box; }
 .work-timeline-heading {
-  translate: 0 -16px;
-  margin: 0 5% 48px;
+  margin: 0 5% 32px;
   text-align: center;
   font-family: Oswald, "Arial Narrow", sans-serif;
   font-size: clamp(28px, 4vw, 40px);
@@ -35,7 +34,7 @@
   --timeline-col: 220px;
   position: relative;
   width: max(100%, calc(var(--timeline-count, 5) * var(--timeline-col) + 48px));
-  padding: 108px 24px 4px;
+  padding: 96px 24px 4px;
 }
 .work-timeline-track { position: relative; height: 36px; margin-bottom: 32px; }
 .work-timeline-bar {
@@ -243,7 +242,7 @@
 .work-timeline-role p { margin: 0; color: var(--timeline-muted); }
 .work-timeline-section :focus-visible { outline: 2px solid #2455af; outline-offset: 4px; border-radius: 4px; }
 @media (max-width: 767px) {
-  .work-timeline-section { padding-block: 40px 64px; scroll-margin-top: 104px; }
+  .work-timeline-section { padding-block: 40px 48px; scroll-margin-top: 104px; }
   .work-timeline-heading { margin-bottom: 24px; }
   .work-timeline { overflow: visible; }
   .work-timeline-inner { width: 100%; padding: 0 16px 4px 52px; }

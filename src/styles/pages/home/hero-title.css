@@ -6,6 +6,7 @@
   width: min(90%, 1223px);
   min-height: 100vh;
   min-height: 100svh;
+  min-height: 100dvh;
   margin-inline: auto;
   padding-block: 152px 80px;
 }

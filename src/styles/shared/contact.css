@@ -8,7 +8,7 @@
   --contact-accent: #2455af;
   width: min(90%, 1223px);
   margin-inline: auto;
-  padding-block: 80px 32px;
+  padding-block: 64px 32px;
   scroll-margin-top: 128px;
   color: var(--contact-ink);
   font: 400 16px/1.6 "Be Vietnam Pro", Arial, sans-serif;
@@ -134,7 +134,7 @@
   #contact .contact-form { transform: translateY(-8px); }
 }
 @media (max-width: 767px) {
-  .contact-section { padding-block: 40px 24px; scroll-margin-top: 104px; }
+  .contact-section { padding-block: 32px 24px; scroll-margin-top: 104px; }
   .contact-inner { grid-template-columns: minmax(112px, .4fr) minmax(0, .6fr); gap: 24px 20px; }
   .contact-copy { display: contents; }
   .contact-photo { grid-column: 1; grid-row: 1; }

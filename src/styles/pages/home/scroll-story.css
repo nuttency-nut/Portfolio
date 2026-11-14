@@ -7,7 +7,7 @@
   position: relative;
   width: 70%;
   margin: 0;
-  padding-bottom: 72px;
+  padding-bottom: 48px;
   color: #52627a;
   font: 400 14px/1.9 "Be Vietnam Pro", Arial, sans-serif;
 }
@@ -79,8 +79,8 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
   gap: 56px;
-  min-height: 280px;
-  padding: 32px 34px;
+  min-height: 264px;
+  padding: 24px 34px;
 }
 .scroll-story-row:nth-of-type(even) .scroll-story-photo { order: 2; }
 .scroll-story-row:nth-of-type(even) .scroll-story-content { order: 1; }
@@ -237,7 +237,7 @@
   .scroll-story-row { padding-inline: 20px; }
 }
 @media (max-width: 767px) {
-  .scroll-story { padding-bottom: 40px; }
+  .scroll-story { padding-bottom: 32px; }
   .scroll-story-description { font-size: 14px; }
   .scroll-story-track, .scroll-story-hint { display: none; }
   .scroll-story-row {
@@ -245,7 +245,7 @@
     align-items: start;
     gap: 16px;
     min-height: 0;
-    padding: 24px 0 40px;
+    padding: 24px 0 32px;
     border-bottom: 1px solid #dfe6ef;
   }
   .scroll-story-row:last-child { border-bottom: 0; }
@@ -257,7 +257,7 @@
   .scroll-story-details-copy > p { font-size: 14px; line-height: 1.8; }
   .scroll-story-dot-toggle { display: none; }
   .scroll-story-lesson { grid-column: 1 / -1; margin-top: 8px; }
-  .scroll-story-photo { grid-column: 1; grid-row: 1; align-self: center; width: 100px; height: 148px; margin-block: 40px; }
+  .scroll-story-photo { grid-column: 1; grid-row: 1; align-self: center; width: 100px; height: 148px; margin-block: 32px; }
   .scroll-story-photo img { width: 96px; height: 144px; }
   .scroll-story-photo.is-open img { transform: translate(var(--spread-mobile-x), var(--spread-y)) rotate(var(--spread-angle)) scale(.7); }
   .scroll-story-photo img:nth-child(1), .scroll-story-photo img:nth-child(3) { --spread-mobile-x: -20px; }
