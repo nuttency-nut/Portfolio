@@ -40,6 +40,8 @@ const CONFIG = () => ({
    ===================================================================== */
 const LAYOUTS = { portrait: [1.6, 2.4], landscape: [2.25, 1.6] };
 const CARD_DEPTH = 0.018, BEVEL = 0.007;
+// Keep artwork clear of the beveled shell, including low-precision mobile depth buffers.
+const CARD_FACE_Z = CARD_DEPTH / 2 + BEVEL + .002;
 const SEGMENTS = 4;            // số đoạn dây
 const NODE_INV_MASS = 20;
 const SUBSTEP = 1 / 960;
@@ -214,7 +216,7 @@ const buildCardGeometry = (L) => {
   roundRectPath(hole, -slot.width / 2 - BEVEL, slot.y - slot.height / 2 - BEVEL, slot.width + BEVEL * 2, slot.height + BEVEL * 2, slot.height / 2 + BEVEL);
   shape.holes.push(hole);
   const body = new THREE.ExtrudeGeometry(shape, { depth: CARD_DEPTH, bevelEnabled: true, bevelThickness: BEVEL, bevelSize: BEVEL, bevelSegments: 5, curveSegments: 24 });
-  body.translate(0, 0, -.018 / 2);
+  body.translate(0, 0, -CARD_DEPTH / 2);
   const face = new THREE.ShapeGeometry(shape, 24);
   const pos = face.getAttribute("position"), uv = face.getAttribute("uv");
   for (let i = 0; i < pos.count; i++) uv.setXY(i, (pos.getX(i) + w / 2) / w, (pos.getY(i) + h / 2) / h);
@@ -551,7 +553,7 @@ async function createLanyard(container, getProps) {
   const rig = createRig();
   const curvePts = [], tailA = new THREE.Vector3(), tailB = new THREE.Vector3();
   const curve = new THREE.CatmullRomCurve3(curvePts, false, "centripetal");
-  const view = { width: 1, height: 1 };
+  const view = { width: 1, height: 1, pixelRatio: 0 };
   let layout = cardLayout("portrait", .3), last = {}, strapScale = CLIP_WIDTH, strapAspect = 2;
   let raf = 0, lastTime = performance.now(), clock = 0, started = false;
   let imagesReady = Promise.resolve();
@@ -584,6 +586,9 @@ async function createLanyard(container, getProps) {
     const width = height * aspect;
     camera.aspect = aspect;
     camera.position.set(0, 0, height / 2 / Math.tan(FOV * Math.PI / 360));
+    // Use depth precision around the card rather than empty space near the camera.
+    camera.near = camera.position.z / 2;
+    camera.far = camera.position.z + height * 2;
     camera.lookAt(0, 0, 0); camera.updateProjectionMatrix(); camera.updateMatrixWorld();
     foil.foilKey.value.set(-2.5, 4, 6).normalize().transformDirection(camera.matrixWorldInverse);
     foil.foilFill.value.set(3, -1, 4).normalize().transformDirection(camera.matrixWorldInverse);
@@ -605,7 +610,7 @@ async function createLanyard(container, getProps) {
       const g = buildCardGeometry(layout);
       bodyMesh.geometry.dispose(); frontMesh.geometry.dispose(); backMesh.geometry.dispose();
       bodyMesh.geometry = g.body; frontMesh.geometry = g.face; backMesh.geometry = g.face.clone();
-      frontMesh.position.z = .0166; backMesh.rotation.y = Math.PI; backMesh.position.z = -.0166;
+      frontMesh.position.z = CARD_FACE_Z; backMesh.rotation.y = Math.PI; backMesh.position.z = -CARD_FACE_Z;
       ring.position.set(0, layout.ringY, 0);
       last.framingKey = "";
     }
@@ -804,9 +809,13 @@ async function createLanyard(container, getProps) {
   canvas.addEventListener("touchstart", onTouchStart, { passive: false });
 
   const resize = () => {
-    view.width = Math.max(1, container.clientWidth);
-    view.height = Math.max(1, container.clientHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile() ? 1.5 : 2));
+    const width = Math.max(1, container.clientWidth), height = Math.max(1, container.clientHeight);
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, isMobile() ? 1.5 : 2);
+    if (width === view.width && height === view.height && pixelRatio === view.pixelRatio) return;
+    view.width = width;
+    view.height = height;
+    if (pixelRatio !== view.pixelRatio) renderer.setPixelRatio(pixelRatio);
+    view.pixelRatio = pixelRatio;
     renderer.setSize(view.width, view.height, false);
     update();
     if (started) render();
