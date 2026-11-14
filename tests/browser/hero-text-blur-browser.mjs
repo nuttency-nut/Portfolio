@@ -1,6 +1,7 @@
 import { chromium, browserExecutable, capture } from '../helpers/browser.mjs';
 // Usage: PLAYWRIGHT_MODULE=<absolute path to playwright/index.mjs> node tests/browser/hero-text-blur-browser.mjs
 import assert from 'node:assert/strict';
+const origin = new URL(process.env.PORTFOLIO_URL || 'http://127.0.0.1:4173/').origin;
 
 const browser = await chromium.launch({
   executablePath: browserExecutable, headless: true,
@@ -8,7 +9,7 @@ const browser = await chromium.launch({
 try {
   for (const viewport of [{ width: 390, height: 844 }, { width: 320, height: 568 }]) {
     const page = await browser.newPage({ viewport, reducedMotion: 'reduce' });
-    await page.goto('http://127.0.0.1:4173/');
+    await page.goto(origin + '/');
     await page.waitForSelector('.hero-title.is-ready');
     await page.waitForFunction(() => document.querySelector('.lanyard-canvas')?.style.visibility === 'visible');
     await page.waitForFunction(() => document.querySelector('.hero-description').style.getPropertyValue('--hero-text-mask').startsWith('url'));
@@ -46,7 +47,7 @@ try {
     await page.close();
   }
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
-  await page.goto('http://127.0.0.1:4173/');
+  await page.goto(origin + '/');
   await page.waitForFunction(() => document.querySelector('.hero-description-typed').textContent.length > 3);
   const mask = await page.locator('.hero-description').evaluate(el => el.style.getPropertyValue('--hero-text-mask'));
   await page.waitForFunction(previous => document.querySelector('.hero-description-typed').textContent.length > 20

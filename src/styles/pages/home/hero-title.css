@@ -1,4 +1,8 @@
 /* Adapted from the supplied hero-title_1.html; scoped to the left hero title. */
+.home-hero { position: relative; isolation: isolate; }
+/* Follow the full hero height, including browser-chrome changes and wrapped copy. */
+.home-hero > .portfolio-background { height: 100%; }
+
 .hero-intro {
   box-sizing: border-box;
   display: flex;

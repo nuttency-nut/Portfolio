@@ -37,11 +37,14 @@ node tests/browser/topbar-music-navigation-browser.mjs
 node tests/browser/contact-browser.mjs
 node tests/browser/about-radar-browser.mjs
 node tests/browser/lanyard-render-browser.mjs
+node tests/browser/home-background-browser.mjs
 ```
 
 `site-assets-browser` mở cả 8 route trên desktop/mobile, giải mã ảnh nội bộ, kiểm tra lỗi JavaScript/404 và phát thật đủ 5 MP3 Hobby.
 
 `lanyard-render-browser` kiểm tra hai mặt thẻ ở nhiều góc, mô phỏng depth buffer 16-bit để bắt lỗi nhấp nháy và kiểm tra canvas không bị reset khi kích thước vẽ giữ nguyên.
+
+`home-background-browser` kiểm tra nền bám đủ chiều cao tầng đầu khi viewport mobile giãn ra hoặc nội dung xuống nhiều dòng; tầng 2 vẫn nằm ngoài màn hình đầu.
 
 Các test gallery có thao tác thêm/xóa ảnh mẫu tạm thời và đồng bộ HTML nguồn trong `pages/projects/`, nên chạy trên dev server và chạy riêng trước khi chạy các test khác truy cập trang Project. Test `site-assets-browser` cũng chạy được trên bản xuất: `npm run build`, mở `npm run preview`, rồi đặt `PORTFOLIO_URL=http://127.0.0.1:4174/`.
 
