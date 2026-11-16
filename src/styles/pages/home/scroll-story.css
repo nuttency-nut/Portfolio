@@ -120,8 +120,19 @@
 .scroll-story-meta { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: flex-start; gap: 4px 12px; margin-top: 6px; }
 .scroll-story-content .scroll-story-position { flex: 0 1 auto; min-width: 0; margin: 0; color: #52627a; font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; }
 .scroll-story-content .scroll-story-period { flex: none; max-width: 100%; margin: 0; color: #52627a; font-size: 13px; line-height: 1.6; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
-.scroll-story-lesson { margin-top: 24px; color: #344969; }
-.scroll-story-lesson h4 { margin: 0 0 8px; color: #253858; font: 700 18px/1.4 Oswald, "Arial Narrow", sans-serif; }
+.scroll-story-lesson { margin-top: 24px; color: #253858; }
+.scroll-story-lesson h4, .scroll-story-lessons h2 {
+  margin: 0 0 14px;
+  color: #52627a;
+  font: 700 clamp(20px, 1.5vw, 22px)/1.35 Oswald, "Arial Narrow", sans-serif;
+  letter-spacing: -.015em;
+}
+.scroll-story-lesson p, .scroll-story-lesson-quote {
+  color: #253858;
+  font: italic 500 clamp(22px, 1.7vw, 24px)/1.45 Spectral, Georgia, serif;
+  text-wrap: pretty;
+}
+.scroll-story-lesson strong, .scroll-story-lesson-quote strong { color: #2455af; font-weight: 600; }
 .scroll-story-container.has-lesson-panel { display: grid; grid-template-columns: 70% 30%; align-items: start; }
 .has-lesson-panel .scroll-story { width: 100%; }
 .scroll-story-lessons {
@@ -131,14 +142,10 @@
   font: 400 14px/1.8 "Be Vietnam Pro", Arial, sans-serif;
 }
 .scroll-story-lessons-sticky { position: sticky; top: clamp(144px, 25svh, 240px); }
-.scroll-story-lessons h2 { margin: 0 0 24px; color: #253858; font: 700 clamp(22px, 2vw, 28px)/1.3 Oswald, "Arial Narrow", sans-serif; letter-spacing: -.015em; }
 .scroll-story-lesson-quotes { display: grid; }
 .scroll-story-lesson-quote {
   grid-area: 1 / 1;
   margin: 0;
-  font-size: 20px;
-  line-height: 1.65;
-  text-wrap: pretty;
   opacity: 0;
   translate: 0 6px;
   transition: opacity .28s ease, translate .35s cubic-bezier(.16, 1, .3, 1);
@@ -173,12 +180,13 @@
   background: #e8edf5;
   box-shadow: inset 0 2px 2px rgba(100, 119, 145, .18);
 }
-.scroll-story-photo img {
+.scroll-story-photo :is(img, video) {
   position: absolute;
   inset: 0 auto auto 0;
   width: 126px;
   height: 189px;
   object-fit: cover;
+  pointer-events: none;
   border: 3px solid #fff;
   border-radius: 10px;
   transform: translate(var(--pile-x), var(--pile-y)) rotate(var(--pile-angle));
@@ -206,27 +214,27 @@
   pointer-events: none;
 }
 .scroll-story-photo.is-open .scroll-story-photo-toggle::after { pointer-events: auto; }
-.scroll-story-photo img:nth-child(1) {
+.scroll-story-photo :is(img, video):nth-child(1) {
   --photo-index: 0; --pile-x: 10px; --pile-y: 10px; --pile-angle: -3deg;
   --spread-x: -55px; --spread-y: -50px; --spread-angle: -11deg;
   z-index: 4;
 }
-.scroll-story-photo img:nth-child(2) {
+.scroll-story-photo :is(img, video):nth-child(2) {
   --photo-index: 1; --pile-x: 1px; --pile-y: 1px; --pile-angle: -6deg;
   --spread-x: 55px; --spread-y: -44px; --spread-angle: 10deg;
   z-index: 3;
 }
-.scroll-story-photo img:nth-child(3) {
+.scroll-story-photo :is(img, video):nth-child(3) {
   --photo-index: 2; --pile-x: -8px; --pile-y: -8px; --pile-angle: -9deg;
   --spread-x: -48px; --spread-y: 60px; --spread-angle: -8deg;
   z-index: 2;
 }
-.scroll-story-photo img:nth-child(4) {
+.scroll-story-photo :is(img, video):nth-child(4) {
   --photo-index: 3; --pile-x: -17px; --pile-y: -17px; --pile-angle: -12deg;
   --spread-x: 57px; --spread-y: 68px; --spread-angle: 8deg;
   z-index: 1;
 }
-.scroll-story-photo.is-open img {
+.scroll-story-photo.is-open :is(img, video) {
   transform: translate(var(--spread-x), var(--spread-y)) rotate(var(--spread-angle)) scale(.8);
   box-shadow: 0 8px 16px rgba(42, 65, 109, .18);
   transition-duration: .6s;
@@ -257,11 +265,12 @@
   .scroll-story-details-copy > p { font-size: 14px; line-height: 1.8; }
   .scroll-story-dot-toggle { display: none; }
   .scroll-story-lesson { grid-column: 1 / -1; margin-top: 8px; }
+  .scroll-story-lesson p { font-size: clamp(18px, 5vw, 20px); }
   .scroll-story-photo { grid-column: 1; grid-row: 1; align-self: center; width: 100px; height: 148px; margin-block: 32px; }
-  .scroll-story-photo img { width: 96px; height: 144px; }
-  .scroll-story-photo.is-open img { transform: translate(var(--spread-mobile-x), var(--spread-y)) rotate(var(--spread-angle)) scale(.7); }
-  .scroll-story-photo img:nth-child(1), .scroll-story-photo img:nth-child(3) { --spread-mobile-x: -20px; }
-  .scroll-story-photo img:nth-child(2), .scroll-story-photo img:nth-child(4) { --spread-mobile-x: 20px; }
+  .scroll-story-photo :is(img, video) { width: 96px; height: 144px; }
+  .scroll-story-photo.is-open :is(img, video) { transform: translate(var(--spread-mobile-x), var(--spread-y)) rotate(var(--spread-angle)) scale(.7); }
+  .scroll-story-photo :is(img, video):nth-child(1), .scroll-story-photo :is(img, video):nth-child(3) { --spread-mobile-x: -20px; }
+  .scroll-story-photo :is(img, video):nth-child(2), .scroll-story-photo :is(img, video):nth-child(4) { --spread-mobile-x: 20px; }
   .scroll-story-photo-toggle::after { inset: -52px -24px; }
   .scroll-story-row:nth-of-type(even) .scroll-story-photo { order: initial; }
 }
@@ -271,6 +280,6 @@
   .scroll-story-dot-toggle { display: none; }
   .scroll-story-details summary svg, .scroll-story-dot-toggle::before { transition: none; }
   .scroll-story-glow, .scroll-story-dot { display: none; }
-  .scroll-story-photo img, .scroll-story-photo.is-open img { transition: none; }
+  .scroll-story-photo :is(img, video), .scroll-story-photo.is-open :is(img, video) { transition: none; }
   .scroll-story-lesson-quote { transition: none; translate: none; }
 }

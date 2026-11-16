@@ -2,27 +2,22 @@
   const card = document.querySelector('.about-radar');
   if (!card || !window.ApexCharts) return;
 
-  // Mock values: edit each group's labels/data here when the real scores are ready.
+  // Edit each group's labels and scores here.
   const groups = {
-    yoe: {
-      title: 'Kinh nghiệm', description: 'Số năm gắn bó với từng mảng công việc.', max: 5, unit: 'năm',
-      labels: ['TMĐT', 'Vận hành', 'Đội nhóm', 'Báo cáo', 'Dự án', 'Quy trình'],
-      data: [3, 3, 2, 3, 2, 2],
-    },
     soft: {
       title: 'Kỹ năng mềm', description: 'Giao tiếp, quản lý và phối hợp cùng đội ngũ.', max: 10,
       labels: ['Lãnh đạo', 'Giao tiếp', 'Đào tạo', 'Đồng hành', 'Chiến lược', 'Trình bày', 'Quyết định', 'Thích nghi'],
-      data: [8, 8, 7, 9, 7, 7, 8, 9],
+      data: [8, 8, 10, 9, 7, 9, 10, 9],
     },
     hard: {
       title: 'Chuyên môn', description: 'Kinh doanh và tối ưu hoạt động thương mại điện tử.', max: 10,
       labels: ['Vận hành', 'Quy trình', 'Dữ liệu', 'Báo cáo', 'Kinh doanh', 'Dự án', 'Hệ thống', 'Tối ưu'],
-      data: [9, 8, 8, 9, 8, 7, 7, 8],
+      data: [10, 9, 8, 8, 8, 8, 9, 8],
     },
     tools: {
       title: 'Công cụ', description: 'Những trợ thủ hỗ trợ công việc mỗi ngày.', max: 10,
-      labels: ['Sheets', 'Excel', 'Power BI', 'Canva', 'Figma', 'AI', 'Automation', 'Báo cáo'],
-      data: [9, 9, 8, 8, 7, 9, 7, 9],
+      labels: ['Sheets', 'Excel', 'Power BI', 'Canva', 'Figma', 'AI', 'Automation'],
+      data: [9, 8, 7, 7, 7, 8, 9],
     },
   };
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
@@ -34,7 +29,7 @@
   let active = 'soft';
   let chart;
 
-  const format = (value, group) => group.unit ? `${value} ${group.unit}` : `${value} / ${group.max}`;
+  const format = (value, group) => `${value} / ${group.max}`;
   const radius = (width, height) => Math.max(36, Math.min(96, (width - 156) / 2, (height - 58) / 2));
   const optionsFor = group => ({
     series: [{ name: group.title, data: [...group.data] }],
@@ -54,7 +49,7 @@
     panel.setAttribute('aria-labelledby', `radar-tab-${key}`);
     card.querySelector('h2').textContent = group.title;
     card.querySelector('.about-radar-description').textContent = group.description;
-    note.textContent = `Dữ liệu minh họa · ${group.unit ? 'Đơn vị: năm' : 'Thang điểm 10'}`;
+    if (note) note.textContent = 'Thang điểm 10';
     values.replaceChildren(...group.labels.map((label, index) => {
       const row = document.createElement('div');
       const term = document.createElement('dt');

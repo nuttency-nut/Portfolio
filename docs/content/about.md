@@ -4,7 +4,7 @@
 
 Khối ảnh/radar nằm ngay sau tầng “Trợ thủ không thể thiếu…” và trước Q&A. Desktop đặt ảnh 4:3 bên trái và radar bên phải, hai khung bằng chiều cao. Dưới 1100px xếp ảnh trên, chart dưới để giữ nhãn dễ đọc. Ảnh người dùng đang dùng được giữ nguyên tại `assets/images/about/radar-photo.jpg`. Khi đổi tên/đuôi ảnh, sửa `src` của `.about-radar-photo img` trong `pages/about.html`; khung vẫn giữ 4:3. Khoảng cách với dãy app là 40px (mobile 28px), với tiêu đề Q&A là 56px (mobile 36px).
 
-Radar dùng ApexCharts 8.8.2 từ mẫu Basic Radar. Bốn tab YoE / Soft / Hard / Tools chuyển nhóm dữ liệu với animation. Các giá trị hiện tại đều là **dữ liệu minh họa**. YoE dùng đơn vị năm (0–5), ba nhóm còn lại dùng thang điểm 10.
+Radar dùng ApexCharts 8.8.2 từ mẫu Basic Radar. Ba tab Soft / Hard / Tools chuyển nhóm dữ liệu với animation và dùng thang điểm 10. Điểm của cả ba nhóm đã cập nhật theo số liệu người dùng cung cấp. Soft và Hard có 8 tiêu chí; Tools có 7 tiêu chí, đã bỏ Báo cáo.
 
 Sửa nhãn, điểm, tiêu đề và mô tả trong object `groups` ở `src/scripts/pages/about/radar.js`. Style tại `src/styles/pages/about/radar.css`, HTML tại `.about-radar` trong `pages/about.html`. Thư viện và license gốc được lưu tại `assets/vendor/apexcharts/`, không cần cài React hay npm. Khi thư viện không tải hoặc JavaScript bị tắt, danh sách điểm mẫu vẫn đọc được.
 

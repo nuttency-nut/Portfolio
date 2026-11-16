@@ -38,13 +38,12 @@ try {
       const stats = await page.locator('.about-stats').boundingBox();
       assert.ok(stats.y + stats.height < height && portrait.y + portrait.height < height, 'Original portrait and statistics still fit laptop first view');
     }
-    for (const [name, axes] of [['Soft', 8], ['YoE', 6], ['Hard', 8], ['Tools', 8]]) {
+    for (const [name, axes] of [['Soft', 8], ['Hard', 8], ['Tools', 7]]) {
       await card.getByRole('tab', { name, exact: true }).click();
       await page.waitForTimeout(500); // Let the real SVG morph settle before checking bounds.
       assert.equal(await card.getByRole('tab', { name, exact: true }).getAttribute('aria-selected'), 'true');
       assert.equal(await card.locator('.about-radar-values > div').count(), axes);
       assert.equal(await card.locator('.about-radar-chart svg text').count(), axes);
-      assert.ok(await card.locator('.about-radar-note').textContent().then(text => text.includes('minh họa')));
       assert.ok(await card.evaluate(el => {
         const svg = el.querySelector('.about-radar-chart svg').getBoundingClientRect();
         return [...el.querySelectorAll('.about-radar-chart svg text')].every(text => {
@@ -56,10 +55,10 @@ try {
     }
     await card.getByRole('tab', { name: 'Tools', exact: true }).focus();
     await page.keyboard.press('ArrowRight');
-    assert.equal(await card.getByRole('tab', { name: 'YoE', exact: true }).getAttribute('aria-selected'), 'true');
+    assert.equal(await card.getByRole('tab', { name: 'Soft', exact: true }).getAttribute('aria-selected'), 'true');
     await page.keyboard.press('Home');
     await page.keyboard.press('ArrowRight');
-    assert.equal(await card.getByRole('tab', { name: 'Soft', exact: true }).getAttribute('aria-selected'), 'true');
+    assert.equal(await card.getByRole('tab', { name: 'Hard', exact: true }).getAttribute('aria-selected'), 'true');
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await card.getByRole('tab', { name: 'Hard', exact: true }).click();
     assert.equal(await card.locator('.about-radar-values > div').count(), 8);
@@ -69,7 +68,7 @@ try {
       await capture(card, { path: `about-radar/card-${width}.png` });
     }
     assert.deepEqual(errors, []);
-    console.log(`PASS ${width}: placement, original hero sizing, four datasets, unclipped labels, keyboard, reduced motion`);
+    console.log(`PASS ${width}: placement, original hero sizing, three datasets, unclipped labels, keyboard, reduced motion`);
     await page.close();
   }
   for (const noJS of [true, false]) {
@@ -78,7 +77,7 @@ try {
     await page.goto(`${origin}/about/`, { waitUntil: 'load' });
     assert.equal(await page.locator('.about-radar-values').isVisible(), true);
     assert.equal(await page.locator('.about-radar-values > div').count(), 8);
-    assert.equal(await page.locator('.about-radar-tabs button:disabled').count(), 4);
+    assert.equal(await page.locator('.about-radar-tabs button:disabled').count(), 3);
     await page.close();
   }
   console.log('PASS: readable score fallback with JavaScript disabled or ApexCharts unavailable');

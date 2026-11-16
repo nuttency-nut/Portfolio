@@ -31,6 +31,7 @@ Windows có Brave tại vị trí mặc định thì test dùng Brave. Đặt `P
 node tests/browser/site-assets-browser.mjs
 node tests/browser/server-http.mjs
 node tests/browser/project-gallery-browser.mjs
+node tests/browser/project-masonry-browser.mjs
 node tests/browser/project-navigation-browser.mjs
 node tests/browser/topbar-music-browser.mjs
 node tests/browser/topbar-music-navigation-browser.mjs
@@ -38,6 +39,7 @@ node tests/browser/contact-browser.mjs
 node tests/browser/about-radar-browser.mjs
 node tests/browser/lanyard-render-browser.mjs
 node tests/browser/home-background-browser.mjs
+node tests/browser/scroll-story-video-browser.mjs
 ```
 
 `site-assets-browser` mở cả 8 route trên desktop/mobile, giải mã ảnh nội bộ, kiểm tra lỗi JavaScript/404 và phát thật đủ 5 MP3 Hobby.

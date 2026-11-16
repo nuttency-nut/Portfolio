@@ -118,10 +118,22 @@
   }
 
   const photos = [...story.querySelectorAll('.scroll-story-photo')];
+  const videoPhotos = photos.filter(photo => photo.querySelector('video'));
   let centeredPhoto = null;
+  function syncPhotoVideo(photo) {
+    const video = photo.querySelector('video');
+    if (!video) return;
+    const bounds = photo.getBoundingClientRect();
+    const visible = bounds.bottom > 0 && bounds.top < innerHeight;
+    if (photo.classList.contains('is-open') && visible && !document.hidden && !reduced.matches) {
+      video.muted = true;
+      video.play().catch(() => { /* Keep the poster if playback is blocked or interrupted. */ });
+    } else video.pause();
+  }
   function setPhotoOpen(photo, open) {
     photo.classList.toggle('is-open', open);
     photo.querySelector('button').setAttribute('aria-expanded', String(open));
+    syncPhotoVideo(photo);
   }
   function openPhoto(photo) {
     photos.forEach(item => setPhotoOpen(item, item === photo));
@@ -146,9 +158,22 @@
     button.addEventListener('click', event => {
       if (event.pointerType === 'mouse' || !photo.classList.contains('is-open')) openPhoto(photo);
       else setPhotoOpen(photo, false);
+      // Reduced motion keeps a still poster until the visitor explicitly opens it.
+      if (reduced.matches && photo.classList.contains('is-open')) {
+        const video = photo.querySelector('video');
+        if (video) video.play().catch(() => { /* Keep the poster if playback is unavailable. */ });
+      }
     });
     button.addEventListener('blur', () => { if (!mobile.matches) setPhotoOpen(photo, false); });
   });
+  if (videoPhotos.length) {
+    const videoObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => syncPhotoVideo(entry.target));
+    });
+    videoPhotos.forEach(photo => videoObserver.observe(photo));
+    document.addEventListener('visibilitychange', () => videoPhotos.forEach(syncPhotoVideo));
+    reduced.addEventListener('change', () => videoPhotos.forEach(syncPhotoVideo));
+  }
   document.addEventListener('pointerdown', event => {
     if (mobile.matches) return;
     photos.forEach(photo => { if (!photo.contains(event.target)) setPhotoOpen(photo, false); });

@@ -5,7 +5,7 @@
     for (const entry of entries) entry.target.classList.toggle('is-visible', entry.isIntersecting);
   });
   for (const frame of frames) {
-    const image = frame.querySelector('img');
+    const image = frame.querySelector('img, video');
     const error = frame.querySelector('.project-image-error');
     const finish = state => {
       frame.dataset.imageState = state;
@@ -14,6 +14,12 @@
       visible.unobserve(frame);
       frame.classList.remove('is-visible');
     };
+    if (image.tagName === 'VIDEO') {
+      // The poster stays visible; video data loads only when the visitor presses play.
+      finish('ready');
+      image.addEventListener('error', () => finish('error'), { once: true });
+      continue;
+    }
     const ready = async () => {
       try { await image.decode(); } catch {}
       finish(image.naturalWidth > 0 ? 'ready' : 'error');

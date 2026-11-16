@@ -26,7 +26,7 @@ try {
       assert.equal(await photo.locator('button').getAttribute('aria-expanded'), 'true');
       assert.equal(await page.locator('.scroll-story-photo.is-open').count(), 1);
       if (i) assert.equal(await photos.nth(i - 1).locator('button').getAttribute('aria-expanded'), 'false');
-      assert.equal(await photo.locator('img').count(), 4);
+      assert.equal(await photo.locator('img, video').count(), 4);
       if (i === 0) {
         await page.waitForTimeout(850);
         assert.equal(await photo.locator('img').evaluateAll(images => images.some(img => img.getAnimations().some(animation => animation.playState === 'running'))), false);

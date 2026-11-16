@@ -16,7 +16,7 @@ try {
     await page.waitForFunction(() => document.querySelectorAll('.scroll-story-row.is-expanded').length === 5);
     const stacks = page.locator('.scroll-story-photo');
     assert.equal(await stacks.count(), 5);
-    assert.equal(await stacks.locator('img').count(), 20);
+    assert.equal(await stacks.locator('img, video').count(), 20);
     for (let i = 0; i < 5; i++) {
       const stack = stacks.nth(i), button = stack.locator('button');
       await stack.evaluate(el => el.scrollIntoView({ block: 'center', behavior: 'instant' }));
@@ -25,10 +25,10 @@ try {
       await page.waitForFunction(button => button.getAttribute('aria-expanded') === 'true', await button.elementHandle());
       assert.equal(await button.getAttribute('aria-expanded'), 'true');
       assert.equal(await page.locator('.scroll-story-photo.is-open').count(), 1);
-      const delays = await stack.locator('img').evaluateAll(images => images.map(img => getComputedStyle(img).transitionDelay));
+      const delays = await stack.locator('img, video').evaluateAll(media => media.map(item => getComputedStyle(item).transitionDelay));
       assert.deepEqual(delays, ['0s', '0.06s', '0.12s', '0.18s'], 'The four images open in sequence');
       await page.waitForTimeout(820);
-      const images = await stack.locator('img').evaluateAll(images => images.map(img => {
+      const images = await stack.locator('img, video').evaluateAll(images => images.map(img => {
         const rect = img.getBoundingClientRect();
         const matrix = new DOMMatrix(getComputedStyle(img).transform);
         return { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom, x: matrix.m41, y: matrix.m42 };

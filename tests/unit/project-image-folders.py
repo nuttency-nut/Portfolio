@@ -39,4 +39,23 @@ with tempfile.TemporaryDirectory() as temporary:
     assert sync.sync_project(root, folder)
     assert '<figure' not in page.read_text(encoding='utf-8')
     assert 'Chưa có ảnh liên quan.' in page.read_text(encoding='utf-8')
+    if sync.Image is not None:
+        photo = related / 'portrait.jpg'
+        exif = sync.Image.Exif()
+        exif[274] = 6
+        sync.Image.new('RGB', (80, 40)).save(photo, exif=exif)
+        assert sync.image_dimensions(photo) == (40, 80), 'Respect EXIF orientation'
+        sync.sync_project(root, folder)
+        assert 'width="40" height="80"' in page.read_text(encoding='utf-8'), 'Reserve the natural aspect ratio before loading'
+    (related / 'clip-1.mp4').write_bytes(b'video fixture')
+    (related / 'clip-1-poster.webp').write_bytes(b'poster fixture')
+    sync.sync_project(root, folder)
+    html = page.read_text(encoding='utf-8')
+    assert html.count('<video ') == 1
+    assert 'controls playsinline preload="none"' in html
+    assert 'poster="assets/images/projects/project-01/related/clip-1-poster.webp?v=' in html
+    assert '<img src="assets/images/projects/project-01/related/clip-1-poster.webp' not in html, 'Poster is not a duplicate gallery entry'
+    assert 'autoplay' not in html
+    assert html.count('<figure') == (2 if sync.Image is not None else 1)
+    assert not sync.sync_project(root, folder), 'Video entries remain stable on repeated sync'
 print('PASS: all folder images, natural ordering, encoded URLs/escaped text, ignored non-images, add/remove/replace, empty state and preserved user content.')

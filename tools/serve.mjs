@@ -18,7 +18,7 @@ const types = {
   '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8',
   '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml',
   '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp',
-  '.avif': 'image/avif', '.gif': 'image/gif', '.mp3': 'audio/mpeg', '.pdf': 'application/pdf',
+  '.avif': 'image/avif', '.gif': 'image/gif', '.mp3': 'audio/mpeg', '.mp4': 'video/mp4', '.pdf': 'application/pdf',
   '.woff': 'font/woff', '.woff2': 'font/woff2', '.ico': 'image/x-icon'
 };
 const clients = new Set();

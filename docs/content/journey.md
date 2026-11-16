@@ -21,3 +21,5 @@ Mỗi chặng trong `.scroll-story` ở `pages/home.html` có **4 ảnh**, xếp
 Mỗi chặng có thư mục riêng `moc-01` đến `moc-05`. Đặt 4 ảnh thật trong thư mục của chặng đó theo tên `anh-01.jpg`, `anh-02.jpg`, `anh-03.jpg`, `anh-04.jpg`, rồi đổi đuôi `.svg` thành `.jpg` tại `src` của ảnh tương ứng trong HTML. PNG/WebP cũng dùng được nếu sửa đúng tên và đuôi file. Ví dụ ảnh thứ hai của chặng 3: `assets/images/home/journey/moc-03/anh-02.jpg`.
 
 Khung dọc tỷ lệ **2:3**, gợi ý ảnh 720 × 1080 px. Ảnh được crop giữa khung bằng `object-fit: cover`. Sửa `alt` thành mô tả ảnh thật khi thay.
+
+Mốc 4 hiện dùng `anh-01.mp4` (bản H.264 từ `anh-01.mov`), ảnh chờ `anh-01-poster.webp`, `anh-02.webp` (từ HEIC), `anh-03.jpg` và `anh-04.png`. Khi đổi MOV/HEIC gốc, cần tạo lại bản MP4/WebP tương ứng. Video chạy lặp, tắt tiếng khi album bung và đang trong màn hình, dừng khi album thu lại, khuất màn hình hoặc tab bị ẩn. Khi bật giảm chuyển động, ảnh chờ hiện trước và bấm mở album để phát video.
