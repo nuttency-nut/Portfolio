@@ -11,11 +11,12 @@ try {
     const response = await page.goto(origin + route.url, { waitUntil: 'domcontentloaded' });
     assert.equal(response.status(), 200);
     assert.ok((await response.text()).includes('property="og:image"'), 'Sharing metadata exists in raw HTML');
-    assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'), 'https://anhduy.info' + route.url);
-    assert.equal(await page.locator('meta[property="og:url"]').getAttribute('content'), 'https://anhduy.info' + route.url);
+    assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'), 'https://www.anhduy.info' + route.url);
+    assert.equal(await page.locator('meta[property="og:url"]').getAttribute('content'), 'https://www.anhduy.info' + route.url);
     assert.equal(await page.locator('meta[property="og:title"]').getAttribute('content'), await page.title());
     const image = await page.locator('meta[property="og:image"]').getAttribute('content');
-    assert.equal(image, 'https://anhduy.info/assets/images/shared/social-preview-v1.jpg');
+    assert.equal(image, 'https://www.anhduy.info/assets/images/shared/social-preview-v1.jpg');
+    assert.equal(await page.locator('meta[property="og:image:secure_url"]').getAttribute('content'), image);
     assert.equal(await page.locator('meta[name="twitter:image"]').getAttribute('content'), image);
     assert.equal(await page.locator('meta[name="twitter:card"]').getAttribute('content'), 'summary_large_image');
     assert.equal(await page.locator('meta[property="og:image:width"]').getAttribute('content'), '1280');
