@@ -78,12 +78,49 @@
 
   document.querySelectorAll('.contact-form').forEach(form => {
     const status = form.querySelector('.contact-status');
-    form.addEventListener('submit', event => {
+    const button = form.querySelector('.contact-submit');
+    const trap = document.createElement('input');
+    trap.name = 'company_website';
+    trap.autocomplete = 'off';
+    trap.tabIndex = -1;
+    trap.hidden = true;
+    form.append(trap);
+    for (const [name, limit] of Object.entries({ name: 100, email: 254, message: 1200 })) form.elements.namedItem(name).maxLength = limit;
+    let sending = false;
+    form.addEventListener('submit', async event => {
       event.preventDefault();
-      status.textContent = 'Thông tin chưa được gửi. Form hiện đang ở chế độ xem trước.';
+      if (sending || !form.reportValidity()) return;
+      sending = true;
+      button.disabled = true;
+      button.textContent = 'Đang gửi…';
+      form.setAttribute('aria-busy', 'true');
+      status.setAttribute('role', 'status');
+      status.textContent = 'Đang gửi lời nhắn của bạn…';
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(form))),
+          signal: AbortSignal.timeout(15_000)
+        });
+        const result = await response.json();
+        if (!response.ok || result.ok !== true) throw new Error(result.message || 'Chưa gửi được lời nhắn. Vui lòng thử lại sau.');
+        status.textContent = 'Cảm ơn bạn! Lời nhắn đã được gửi đến Duy.';
+        form.reset();
+      } catch (error) {
+        status.setAttribute('role', 'alert');
+        status.textContent = error instanceof TypeError || error.name === 'TimeoutError'
+          ? 'Chưa nhận được xác nhận gửi lời nhắn. Vui lòng kiểm tra kết nối hoặc liên hệ qua email ở cuối trang.'
+          : error instanceof SyntaxError ? 'Chưa gửi được lời nhắn. Vui lòng thử lại sau.' : error.message;
+      } finally {
+        sending = false;
+        button.disabled = false;
+        button.textContent = 'Submit';
+        form.setAttribute('aria-busy', 'false');
+      }
     });
-    // Enable only after interception is ready; the preview must not post form data.
-    form.querySelector('.contact-submit').disabled = false;
+    // No-JS visitors keep a disabled button instead of posting personal data to a page URL.
+    button.disabled = false;
   });
 
   const photo = document.querySelector('.contact-photo-explore');

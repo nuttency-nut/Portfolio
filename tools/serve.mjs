@@ -3,6 +3,7 @@ import { readFile, stat } from 'node:fs/promises';
 import { createServer } from 'node:http';
 import { dirname, extname, isAbsolute, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import contact from '../api/contact.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const preview = process.argv.includes('--preview');
@@ -26,9 +27,10 @@ const reload = '<script>const updates=new EventSource("/__dev_events");updates.o
 
 const server = createServer(async (request, response) => {
   try {
-    if (!['GET', 'HEAD'].includes(request.method)) { response.writeHead(405).end(); return; }
     const url = new URL(request.url, 'http://localhost');
     const pathname = decodeURIComponent(url.pathname);
+    if (pathname === '/api/contact') { await contact(request, response); return; }
+    if (!['GET', 'HEAD'].includes(request.method)) { response.writeHead(405).end(); return; }
     if (liveReload && pathname === '/__dev_events') {
       response.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', Connection: 'keep-alive' });
       response.write(': connected\n\n');

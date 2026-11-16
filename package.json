@@ -4,8 +4,9 @@
   "type": "module",
   "engines": { "node": "22.x" },
   "scripts": {
-    "dev": "node tools/serve.mjs",
+    "dev": "node --env-file-if-exists=.env.local tools/serve.mjs",
     "build": "node tools/build.mjs",
-    "preview": "node tools/serve.mjs --preview"
+    "preview": "node --env-file-if-exists=.env.local tools/serve.mjs --preview",
+    "zalo:chat-id": "node --env-file-if-exists=.env.local tools/zalo/get-chat-id.mjs"
   }
 }

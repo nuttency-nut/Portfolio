@@ -10,6 +10,7 @@ try {
   for (const width of [1440, 1024, 390, 320]) {
     const page = await browser.newPage({ viewport: { width, height: width >= 768 ? 1100 : 900 }, reducedMotion: 'reduce' });
     const errors = [], submissions = [];
+    await page.route('**/api/contact', route => route.fulfill({ status: 503, json: { ok: false, message: 'Lời nhắn chưa được gửi. Vui lòng thử lại sau.' } }));
     page.on('pageerror', error => errors.push(error.message));
     page.on('request', request => {
       const target = new URL(request.url());
@@ -53,10 +54,11 @@ try {
     await section.getByLabel('Message', { exact: true }).fill('Bản xem trước của form liên hệ.');
     const before = page.url();
     await page.getByRole('button', { name: 'Submit', exact: true }).click();
+    await page.waitForFunction(() => document.querySelector('#contact .contact-status').getAttribute('role') === 'alert');
     assert.match(await section.locator('.contact-status').textContent(), /chưa được gửi/);
     assert.equal(page.url(), before, 'Preview submission must not navigate or add a hash');
     assert.equal(await name.inputValue(), 'Portfolio preview');
-    assert.deepEqual(submissions, [], 'The preview must not transmit form data');
+    assert.equal(submissions.length, 1, 'Only the valid form reaches the intercepted API');
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth), width);
     if (width < 768) await page.locator('#menuBtn').click();
     const nav = width < 768 ? '#mobileMenu' : '.nav-links';
@@ -74,7 +76,7 @@ try {
   await page.goto(url, { waitUntil: 'domcontentloaded' });
   assert.equal(await page.getByRole('button', { name: 'Submit', exact: true }).isDisabled(), true);
   await page.close();
-  console.log('PASS: light contact template, desktop/mobile layout, validation and focus, honest preview without transmission, root-URL navigation, no-JS safety.');
+  console.log('PASS: light contact template, desktop/mobile layout, validation and focus, intercepted API failure, root-URL navigation and no-JS safety.');
 } finally {
   await browser.close();
 }

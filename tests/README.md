@@ -8,6 +8,8 @@ Chạy lệnh từ thư mục gốc. Mở dev bằng `npm run dev` tại `http:/
 python tools/check_paths.py
 python tests/unit/project-image-folders.py
 node tests/unit/build.mjs
+node tests/unit/contact-api.mjs
+node tests/unit/zalo-chat-id.mjs
 node tests/unit/lanyard-startup.mjs
 node tests/unit/lanyard-physics.mjs
 ```
@@ -36,6 +38,7 @@ node tests/browser/project-navigation-browser.mjs
 node tests/browser/topbar-music-browser.mjs
 node tests/browser/topbar-music-navigation-browser.mjs
 node tests/browser/contact-browser.mjs
+node tests/browser/contact-delivery-browser.mjs
 node tests/browser/about-radar-browser.mjs
 node tests/browser/lanyard-render-browser.mjs
 node tests/browser/home-background-browser.mjs
