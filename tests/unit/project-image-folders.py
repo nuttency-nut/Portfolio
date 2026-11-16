@@ -58,4 +58,15 @@ with tempfile.TemporaryDirectory() as temporary:
     assert 'autoplay' not in html
     assert html.count('<figure') == (2 if sync.Image is not None else 1)
     assert not sync.sync_project(root, folder), 'Video entries remain stable on repeated sync'
+    for group in ['01-website-crm', '02-studio']:
+        (related / group).mkdir()
+        (related / group / 'anh-01.jpg').write_bytes(b'group image fixture')
+    assert sync.sync_project(root, folder)
+    html = page.read_text(encoding='utf-8')
+    assert 'project-gallery--grouped' in html
+    assert html.index('data-gallery-group="01-website-crm"') < html.index('data-gallery-group="02-studio"')
+    assert 'related/01-website-crm/anh-01.jpg?v=' in html and 'related/02-studio/anh-01.jpg?v=' in html
+    assert html.count('class="project-gallery-group"') == 3, 'Root media remains available in a final group'
+    assert html.count('<figure') == (4 if sync.Image is not None else 3)
+    assert not sync.sync_project(root, folder), 'Folder grouping survives repeated sync'
 print('PASS: all folder images, natural ordering, encoded URLs/escaped text, ignored non-images, add/remove/replace, empty state and preserved user content.')
