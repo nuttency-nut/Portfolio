@@ -39,6 +39,7 @@ node tests/browser/topbar-music-browser.mjs
 node tests/browser/topbar-music-navigation-browser.mjs
 node tests/browser/contact-browser.mjs
 node tests/browser/contact-delivery-browser.mjs
+node tests/browser/sharing-browser.mjs
 node tests/browser/about-radar-browser.mjs
 node tests/browser/lanyard-render-browser.mjs
 node tests/browser/home-background-browser.mjs
