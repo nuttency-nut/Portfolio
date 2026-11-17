@@ -43,6 +43,7 @@ node tests/browser/sharing-browser.mjs
 node tests/browser/about-radar-browser.mjs
 node tests/browser/lanyard-render-browser.mjs
 node tests/browser/home-background-browser.mjs
+node tests/browser/testimonials-links-browser.mjs
 node tests/browser/scroll-story-video-browser.mjs
 ```
 

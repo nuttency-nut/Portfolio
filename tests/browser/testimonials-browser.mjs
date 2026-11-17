@@ -28,7 +28,8 @@ try {
       assert.ok(card.height < (width < 768 ? 235 : 255), 'Cards no longer keep the old 278px height');
     }
     assert.equal(await groups.last().getAttribute('aria-hidden'), 'true');
-    assert.equal(await groups.last().evaluate(el => el.inert), true);
+    assert.equal(await groups.last().evaluate(el => el.inert), false);
+    assert.ok(await groups.last().locator('a[href]').evaluateAll(links => links.every(link => link.tabIndex === -1)), 'Loop-copy links work by pointer without duplicate Tab stops');
     await section.locator('img').evaluateAll(images => Promise.all(images.map(img => {
       img.loading = 'eager'; // Check every avatar, including offscreen loop copies.
       return img.decode();

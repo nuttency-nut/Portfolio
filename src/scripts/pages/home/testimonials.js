@@ -7,7 +7,8 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const copy = group.cloneNode(true);
   copy.setAttribute('aria-hidden', 'true');
-  copy.inert = true;
+  // Cloned links remain clickable without adding duplicate keyboard tab stops.
+  copy.querySelectorAll('a[href]').forEach(link => { link.tabIndex = -1; });
   track.append(copy);
   let visible = false;
   let drag = null;
@@ -37,6 +38,7 @@
   new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); }).observe(section);
   viewport.addEventListener('pointerdown', event => {
     if (!event.isPrimary || event.button !== 0 || drag) return;
+    if (event.target.closest('a[href], button, input, select, textarea')) return;
     if (reduced.matches && event.pointerType !== 'mouse') return;
     drag = { id: event.pointerId, x: event.clientX, time: animation()?.currentTime ?? 0, scroll: viewport.scrollLeft, native: reduced.matches };
     viewport.setPointerCapture(event.pointerId);

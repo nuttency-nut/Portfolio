@@ -20,3 +20,5 @@ Card dùng bố cục gọn: nhận xét hiển thị tối đa 3 dòng, dài h�
 PNG/WebP cũng dùng được. Sau khi thêm ảnh thật, đổi đuôi `.svg` của `src` tương ứng trong HTML sang đúng `.jpg`, `.png` hoặc `.webp`. Ví dụ: `src="assets/images/home/testimonials/avatars/dong-nghiep-01.jpg"`. Không đổi đuôi file ảnh mà chưa chuyển định dạng. Ảnh được cắt tròn bằng CSS; giữ khuôn mặt ở giữa. Các file SVG trong thư mục là avatar mẫu, dùng trong lúc chờ ảnh thật.
 
 Style: `src/styles/pages/home/testimonials.css`. Logic: `src/scripts/pages/home/testimonials.js`. Tốc độ hiện tại 42px/giây, từ phải sang trái, nối vòng liền mạch. Giữ chuột/chạm để kéo hai chiều; thả tay tự chạy tiếp ngay từ vị trí vừa kéo, không có nút tạm dừng. Điện thoại vẫn cuộn trang dọc bình thường. Hỗ trợ phím mũi tên trái/phải khi vùng nhận xét được focus. Tự tạm dừng khi ra khỏi màn hình hoặc đổi tab; chế độ giảm chuyển động và khi tắt JavaScript dùng cuộn ngang thủ công.
+
+Liên kết Portfolio trong card dùng thẻ `<a>` bình thường và mở tab mới. Bắt đầu thao tác trên link sẽ không kích hoạt kéo card. Bản sao phục vụ vòng chạy vẫn bấm link được, nhưng các link sao chép bị loại khỏi thứ tự Tab để không lặp điểm focus.
