@@ -926,7 +926,7 @@ function makeBack(logo = null) {
   g.font = "500 36px Inter"; g.fillStyle = "rgba(236,230,214,.7)";
   g.fillText("Senior Ecommerce", 512, 930);
   g.fillText("NQAD667723@gmail.com", 512, 1150);
-  g.fillText("trananhquoc.vn", 512, 1205);
+  g.fillText("anhduy.info", 512, 1205);
   return c.toDataURL("image/png");
 }
 function makeStrap() {
